@@ -1,8 +1,7 @@
 import api from "../axios/api";
 import { useState, useEffect } from "react";
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Tab } from "@headlessui/react";
-
 
 function ProfilePage() {
   const [user, setUser] = useState({});
@@ -92,7 +91,12 @@ function ProfilePage() {
         </div>
       </div>
 
-      <Link to="/todosvinhos">Escolha seus vinhos</Link>
+      <Link
+        to="/todosvinhos"
+        className="bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2"
+      >
+        Escolha seus vinhos
+      </Link>
     </div>
   );
 }
