@@ -27,12 +27,12 @@ export default function HomePage() {
       </div>
       <div>
         <h1>Vinhos disponíveis</h1>
-        <div>
+        <div className="flex flex-wrap justify-center">
           {wines.map((wine) => {
             return (
               <div
                 key={wine._id}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2"
+                className="bg-white rounded-lg shadow-sm p-2  ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-1 m-4 w-1/4"
               >
                 <h2>Marca: {wine.brand}</h2>
                 <p>Safra: {wine.year}</p>
