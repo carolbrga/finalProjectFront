@@ -70,8 +70,8 @@ function SignupPage() {
       <div className="flex min-h-full justify-center items-center bg-gray-100">
         <div className="sm:w-full sm:max-w-sm bg-white p-8 rounded-lg shadow">
           <img
-            className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            className="mx-auto h-16 w-16 rounded-full"
+            src="https://img.freepik.com/fotos-gratis/copo-de-vinho-tinto-e-garrafa-no-balcao-de-bar_107420-65845.jpg?size=626&ext=jpg"
             alt="Your Company"
           />
           <h2 className="mt-4 text-center text-2xl font-bold leading-9 text-gray-900">
