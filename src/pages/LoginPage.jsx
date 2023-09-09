@@ -17,11 +17,10 @@ function LoginPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      let response;
-
-      if (userType === "user") {
-        response = await axios.post("localhost:4000/user/login", form);
-      }
+      const response = await axios.post(
+        "http://localhost:4000/user/login",
+        form
+      );
       //Faça a requisição para a rota /login da sua api aqui.
 
       //GUARDAR O TOKEN E ID DE QUEM LOGOU
