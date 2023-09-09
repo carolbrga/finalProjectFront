@@ -10,17 +10,18 @@ import WinePage from "./pages/WinePage";
 import PacksPage from "./pages/PacksPage";
 import PacksDetailPage from "./pages/PacksDetailPage";
 import ProtectRoute from "./components/ProtectRoute";
-
+import HomePage from "./pages/HomePage";
 function App() {
-   return (
-      <div className="bg-gray-100 min-h-screen">
-         <Navbar />
-         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-            <Routes>
-               {/* Rotas que não devem ser protegidas */}
-               <Route path="/" element={<HomePage />} />
-               <Route path="/login" element={<LoginPage />} />
-               <Route path="/signup" element={<SignupPage />} />
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      <Navbar />
+      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <Routes>
+          {/* Rotas que não devem ser protegidas */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+
 
                {/* Rota protegida */}
                <Route
@@ -34,8 +35,10 @@ function App() {
                
             </Routes>
          </div>
+
       </div>
-   );
+    </div>
+  );
 }
 
 export default App;
