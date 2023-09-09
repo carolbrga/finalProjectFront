@@ -34,10 +34,10 @@ export default function HomePage() {
                 key={wine._id}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2"
               >
-                <h2>Marca:{wine.brand}</h2>
-                <p>Safra:{wine.year}</p>
-                <p>origin:{wine.origin}</p>
-                <p>Mais detalhes &rarr;</p>
+                <h2>Marca: {wine.brand}</h2>
+                <p>Safra: {wine.year}</p>
+                <p>origin: {wine.origin}</p>
+                <Link to="/detalhesdovinho/">Mais detalhes &rarr;</Link>
               </div>
             );
           })}
