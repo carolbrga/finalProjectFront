@@ -2,6 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import HomePage  from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import Navbar from "./components/Navbar";
 import WineDetailPage from "./pages/WineDetailPage";
