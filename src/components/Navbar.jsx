@@ -20,57 +20,57 @@ function Navbar() {
    console.log(role);
 
    return (
-      <nav className="bg-white shadow">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-               <Link to="/" className="flex">
-                  <div className="flex-shrink-0 flex items-center">
-                     <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                        alt="Workflow"
-                     />
-                     <span className="text-lg font-bold ml-2">Dev Suport</span>
-                  </div>
-               </Link>
-               <div className="flex items-center">
-                  {isLoggedIn === false && (
-                     <>
-                        <Link
-                           to="/signup"
-                           className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                           Sign up
-                        </Link>
-                        <Link
-                           to="/login"
-                           className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                           Log in
-                        </Link>
-                     </>
-                  )}
+     <nav className="bg-white shadow">
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="flex justify-between h-16">
+           <Link to="/" className="flex">
+             <div className="flex-shrink-0 flex items-center">
+               <img
+                 className="h-16 w-16 rounded-full"
+                 src="https://img.freepik.com/fotos-gratis/copo-de-vinho-tinto-e-garrafa-no-balcao-de-bar_107420-65845.jpg?size=626&ext=jpg"
+                 alt="Workflow"
+               />
+               <span className="text-lg font-bold ml-2">Wine & Wine</span>
+             </div>
+           </Link>
+           <div className="flex items-center">
+             {isLoggedIn === false && (
+               <>
+                 <Link
+                   to="/signup"
+                   className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                 >
+                   Sign up
+                 </Link>
+                 <Link
+                   to="/login"
+                   className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                 >
+                   Log in
+                 </Link>
+               </>
+             )}
 
-                  {isLoggedIn === true && (
-                     <>
-                        <button
-                           onClick={handleLogout}
-                           className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                           Logout
-                        </button>
-                        <Link
-                           to="/profile"
-                           className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                           Profile
-                        </Link>
-                     </>
-                  )}
-               </div>
-            </div>
+             {isLoggedIn === true && (
+               <>
+                 <button
+                   onClick={handleLogout}
+                   className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                 >
+                   Logout
+                 </button>
+                 <Link
+                   to="/profile"
+                   className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                 >
+                   Profile
+                 </Link>
+               </>
+             )}
+           </div>
          </div>
-      </nav>
+       </div>
+     </nav>
    );
 }
 
