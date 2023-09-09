@@ -1,5 +1,7 @@
 import api from "../axios/api";
 import { useState, useEffect } from "react";
+import {Link, useNavigate} from "react-router-dom";
+import { fromJSON } from "postcss";
 
 function ProfilePage() {
   const [user, setUser] = useState({});
@@ -34,6 +36,8 @@ function ProfilePage() {
       <div>
         <img src={user.profilePicture} alt="Foto do usuário" />
       </div>
+
+      <Link to="/todosvinhos">Escolha seus vinhos</Link>
     </div>
   );
 }
