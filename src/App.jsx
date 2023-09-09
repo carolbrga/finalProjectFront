@@ -2,8 +2,13 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import HomePage  from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import Navbar from "./components/Navbar";
+import WineDetailPage from "./pages/WineDetailPage";
+import WinePage from "./pages/WinePage";
+import PacksPage from "./pages/PacksPage";
+import PacksDetailPage from "./pages/PacksDetailPage";
 import ProtectRoute from "./components/ProtectRoute";
 import HomePage from "./pages/HomePage";
 function App() {
@@ -17,12 +22,20 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
 
-          {/* Rota protegida */}
-          <Route
-            path="/profile"
-            element={<ProtectRoute Component={ProfilePage} />}
-          />
-        </Routes>
+
+               {/* Rota protegida */}
+               <Route
+                  path="/profile"
+                  element={<ProtectRoute Component={ProfilePage} />}
+               />
+               <Route path="/wine/get-all" element={<ProtectRoute Component={WinePage}/>}/>
+               <Route path="/wine/get-wine/:id" element={<ProtectRoute Component={WineDetailPage}/>}/>
+               <Route path="/packs/get-all" element={<ProtectRoute Component={PacksPage}/>}/>
+               <Route path="/packs/get-pack/:id" element={<ProtectRoute Component={PacksDetailPage}/>}/>
+               
+            </Routes>
+         </div>
+
       </div>
     </div>
   );
