@@ -20,6 +20,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+       
+
 
 
                {/* Rota protegida */}
@@ -27,10 +29,10 @@ function App() {
                   path="/profile"
                   element={<ProtectRoute Component={ProfilePage} />}
                />
-               <Route path="/wine/get-all" element={<ProtectRoute Component={WinePage}/>}/>
-               <Route path="/wine/get-wine/:id" element={<ProtectRoute Component={WineDetailPage}/>}/>
-               <Route path="/packs/get-all" element={<ProtectRoute Component={PacksPage}/>}/>
-               <Route path="/packs/get-pack/:id" element={<ProtectRoute Component={PacksDetailPage}/>}/>
+               <Route path="/todosvinhos" element={<ProtectRoute Component={WinePage}/>}/>
+               <Route path="/detalhesdovinho" element={<ProtectRoute Component={WineDetailPage}/>}/>
+               <Route path="/todospacotes" element={<ProtectRoute Component={PacksPage}/>}/>
+               <Route path="/detalhespacotes" element={<ProtectRoute Component={PacksDetailPage}/>}/>
                
             </Routes>
          </div>
