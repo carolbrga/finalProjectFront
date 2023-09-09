@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function WinePage(){
     const navigate = useNavigate();
+const [wines, setWines] = useState([]);
+
+useEffect(() => {
+async function getWines() {
+const response = await api.get("/wine/get-all")
+}
+
+}, []);
 
 return (
     <div>
