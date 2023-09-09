@@ -1,6 +1,8 @@
 import api from "../axios/api";
 import { useState, useEffect } from "react";
+import {Link, useNavigate} from "react-router-dom";
 import { Tab } from "@headlessui/react";
+
 
 function ProfilePage() {
   const [user, setUser] = useState({});
@@ -89,6 +91,8 @@ function ProfilePage() {
           </div>
         </div>
       </div>
+
+      <Link to="/todosvinhos">Escolha seus vinhos</Link>
     </div>
   );
 }
