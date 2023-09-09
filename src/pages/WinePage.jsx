@@ -25,17 +25,13 @@ console.log(wines);
 
 return (
     <>
-<h1>Vinhos disponíveis</h1>
-    <div>
+<h1 className="flex justify-start" >Vinhos:</h1>
+    <div className="flex flex-wrap justify-center">
 {wines.map((wine) =>{
     return (
-        <div key={wine._id}>
-<h2>{wine.brand} - {wine.grape}</h2>
-<p>{wine.description}</p>
+        <div className="bg-white rounded-lg shadow-sm p-2  ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-1 m-4 w-1/4" key={wine._id}>
+<h2>{wine.grape} - {wine.brand}</h2>
 <p>{wine.origin}</p>
-<p>{wine.year}</p>
-<p>{wine.alcoholLevel}</p>
-<p>{wine.category}</p>
 <p>{wine.year}</p>
 <p>{wine.price}</p>
 <div>
