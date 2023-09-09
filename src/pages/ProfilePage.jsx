@@ -1,5 +1,6 @@
 import api from "../axios/api";
 import { useState, useEffect } from "react";
+import { Tab } from "@headlessui/react";
 
 function ProfilePage() {
   const [user, setUser] = useState({});
@@ -18,7 +19,15 @@ function ProfilePage() {
 
     getProfile();
   }, []);
-
+  async function handleSubmitProfile(e) {
+    e.preventDefault();
+    try {
+      await api.put("/user/edit", formProfile);
+      setReload(!reload);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className="flex flex-col justify-center items-center">
       <h1>PROFILE</h1>
@@ -34,6 +43,7 @@ function ProfilePage() {
       <div>
         <img src={user.profilePicture} alt="Foto do usuário" />
       </div>
+      <div></div>
     </div>
   );
 }
