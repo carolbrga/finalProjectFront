@@ -10,7 +10,6 @@ import WinePage from "./pages/WinePage";
 import PacksPage from "./pages/PacksPage";
 import PacksDetailPage from "./pages/PacksDetailPage";
 import ProtectRoute from "./components/ProtectRoute";
-import HomePage from "./pages/HomePage";
 function App() {
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -37,7 +36,6 @@ function App() {
          </div>
 
       </div>
-    </div>
   );
 }
 
