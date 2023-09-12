@@ -30,25 +30,6 @@ export default function HomePage() {
       }
     }
     getPacks();
-    async function getPacksDetail() {
-      try {
-        const response = await api.get("/packs/get-pack/:id");
-        console.log(response.data);
-        setPacks(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getPacksDetail();
-    async function getWineDetail() {
-      try {
-        const response = await api.get("/pcaks/");
-        console.log(response.data);
-        setWines(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
   }, []);
   console.log(packs);
 

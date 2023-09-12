@@ -29,6 +29,22 @@ function ProfilePage() {
       console.log(error);
     }
   }
+  async function handleDeleteWine(e) {
+    try {
+      await api.delete(`/wine/remove-wine-history/${id_wine}`);
+      setReload(!reload);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async function handleDeletePack(e) {
+    try {
+      await api.delete(`/packs/delete/${id_pack}`);
+      setReload(!reload);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="flex flex-col justify-center items-center">
@@ -64,6 +80,7 @@ function ProfilePage() {
                   <p>Nome do Vinho: {wine.grape}</p>{" "}
                   <p>Teor de Alcool:{wine.alcoholLevel}</p>
                   <p>Marca: {wine.brand}</p>
+                  <button onClick={handleDeleteWine}>Excluir</button>
                 </div>
               ))
             ) : (
@@ -79,9 +96,10 @@ function ProfilePage() {
             {user.history_pack && user.history_pack.length > 0 ? (
               user.history_pack.map((pack) => (
                 <div key={pack._id}>
-                  Nome do Pacote: {pack.nome}{" "}
+                  Nome do Pacote: {pack.name}{" "}
                   {/* Substituir 'nome' pelo campo correto */}
                   {/* Outros dados do pacote, caso necessário */}
+                  <button onClick={handleDeletePack}>Excluir</button>
                 </div>
               ))
             ) : (
