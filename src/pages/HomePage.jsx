@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../axios/api";
 import PacksPage from "./PacksPage";
+import PacksDetailPage from "./PacksDetailPage";
+import WinePage from "./WinePage";
+import WineDetailPage from "./WineDetailPage";
 
 export default function HomePage() {
   const [wines, setWines] = useState([]);
@@ -19,7 +22,7 @@ export default function HomePage() {
     getWines();
     async function getPacks() {
       try {
-        const response = await api.get("/packs/all");
+        const response = await api.get("/packs/get-all");
         console.log(response.data);
         setPacks(response.data);
       } catch (error) {
@@ -27,7 +30,27 @@ export default function HomePage() {
       }
     }
     getPacks();
+    async function getPacksDetail() {
+      try {
+        const response = await api.get("/packs/get-pack/:id");
+        console.log(response.data);
+        setPacks(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getPacksDetail();
+    async function getWineDetail(){
+      try {
+        const response = await api.get("/wine/get-all");
+        console.log(response.data);
+        setWines(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   }, []);
+  console.log(packs);
 
   return (
     <main>
@@ -36,7 +59,7 @@ export default function HomePage() {
           className="h-full w-full object-cover rounded-md"
           src="https://mybartender.com/wp-content/uploads/2023/06/best-sweet-red-wine.png"
         />
-        <div className=" flex justify-center text-white absolute inset-0 bg-gradient-to-t from-black opacity-50 items-center">
+        <div className="flex justify-center text-white absolute inset-0 bg-gradient-to-t from-black opacity-50 items-center">
           Vinhos & Vinhos
         </div>
       </div>
@@ -49,10 +72,13 @@ export default function HomePage() {
                 key={wine._id}
                 className="bg-white rounded-lg shadow-sm p-2  ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-1 m-4 w-1/4"
               >
+                <img src={wine.photo} />
                 <h2>Marca: {wine.brand}</h2>
                 <p>Safra: {wine.year}</p>
                 <p>origin: {wine.origin}</p>
-                <Link to="/detalhesdovinho/">Mais detalhes &rarr;</Link>
+                <Link to={`/detalhesdovinho/wine/${wine._id}`}>
+                  Mais detalhes &rarr;
+                </Link>
               </div>
             );
           })}
@@ -73,7 +99,9 @@ export default function HomePage() {
                 <p>{pack.wines}</p>
                 <p>{pack.price}</p>
 
-                <Link to="/detalhesdopack/">Mais detalhes &rarr;</Link>
+                <Link to={`/detalhespacotes/packs/${pack._id}`}>
+                  Ver detalhes
+                </Link>
               </div>
             );
           })}
