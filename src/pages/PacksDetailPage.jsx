@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import api from "../axios/api";
 import { Link } from "react-router-dom";
 
 function PacksDetailPage() {
   const [packsDetail, setPacksDetail] = useState([]);
 
+  const params = useParams();
+
+
   useEffect(() => {
     async function getPacksDetail() {
       try {
-        const response = await api.get("/packs/all");
+        const response = await api.get(`/packs/${params.id_packs}`);
         console.log(response.data);
         setPacksDetail(response.data);
       } catch (error) {
@@ -20,6 +23,16 @@ function PacksDetailPage() {
   }, []);
 
   console.log(packsDetail);
+
+  async function handlePacksHistory() {
+    try {
+      await api.post(`"/add-pack-history/${params.id_packs}`);
+      navigate("/profile");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   return (
     <div>
@@ -37,9 +50,7 @@ function PacksDetailPage() {
               <p>{packDetail.origin}</p>
               <p>{packDetail.delivery}</p>
               <div>
-                <Link to={`/detalhesdopack/${packDetail._id}`}>
-                  Ver detalhes
-                </Link>
+                <button onClick={handlePacksHistory}>Favoritar</button>
               </div>
             </div>
           );
