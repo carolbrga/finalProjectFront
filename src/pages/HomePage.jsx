@@ -40,9 +40,9 @@ export default function HomePage() {
       }
     }
     getPacksDetail();
-    async function getWineDetail(){
+    async function getWineDetail() {
       try {
-        const response = await api.get("/wine/get-all");
+        const response = await api.get("/pcaks/");
         console.log(response.data);
         setWines(response.data);
       } catch (error) {
