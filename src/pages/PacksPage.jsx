@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useParams } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../axios/api";
 import { Link } from "react-router-dom";
 
 function PacksPage() {
   const [packs, setPacks] = useState([]);
+  const params = useParams();
 
   useEffect(() => {
     async function getPacks() {
@@ -19,7 +20,7 @@ function PacksPage() {
     getPacks();
   }, []);
 
-  console.log(packs);
+  console.log("Checking packs");
 
   return (
     <div>

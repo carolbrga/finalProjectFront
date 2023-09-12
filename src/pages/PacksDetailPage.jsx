@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 function PacksDetailPage() {
   const [packsDetail, setPacksDetail] = useState([]);
+
   const params = useParams();
+
 
   useEffect(() => {
     async function getPacksDetail() {
@@ -30,6 +32,7 @@ function PacksDetailPage() {
       console.log(error);
     }
   }
+
 
   return (
     <div>
