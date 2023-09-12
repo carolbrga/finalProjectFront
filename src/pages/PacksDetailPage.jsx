@@ -39,22 +39,22 @@ function PacksDetailPage() {
       <h1>Pacotes disponíveis</h1>
 
       <div>
-        {packsDetail.map((packDetail) => {
+        
           return (
-            <div key={packDetail._id}>
-              <h2>{packDetail.title}</h2>
-              <h3>{packDetail.price}</h3>
-              <h3>{packDetail.type}</h3>
-              <p>{packDetail.wines}</p>
-              <p>{packDetail.description}</p>
-              <p>{packDetail.origin}</p>
-              <p>{packDetail.delivery}</p>
+            <div key={packsDetail._id}>
+              <h2>{packsDetail.title}</h2>
+              <h3>{packsDetail.price}</h3>
+              <h3>{packsDetail.type}</h3>
+              <p>{packsDetail.wines}</p>
+              <p>{packsDetail.description}</p>
+              <p>{packsDetail.origin}</p>
+              <p>{packsDetail.delivery}</p>
               <div>
                 <button onClick={handlePacksHistory}>Favoritar</button>
               </div>
             </div>
           );
-        })}
+        
       </div>
     </div>
   );
