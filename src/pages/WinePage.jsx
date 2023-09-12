@@ -23,7 +23,6 @@ function WinePage() {
 
   return (
     <>
-
       <h1 className="flex justify-start">Vinhos:</h1>
       <div className="flex flex-wrap justify-center">
         {wines.map((wine) => {
@@ -35,7 +34,7 @@ function WinePage() {
               <h2 className="mt-4 text-center text-2xl font-bold leading-9 text-gray-900">
                 {wine.grape} - {wine.brand}
               </h2>
-              <img  src={wine.photo}/>
+              <img src={wine.photo} />
               <p>{wine.origin}</p>
               <p>{wine.year}</p>
               <p>{wine.price}</p>
@@ -46,7 +45,6 @@ function WinePage() {
           );
         })}
       </div>
-
     </>
   );
 }
