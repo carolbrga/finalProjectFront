@@ -25,7 +25,7 @@ function PacksDetailPage() {
 
   async function handlePacksHistory() {
     try {
-      await api.post(`"/add-pack-history/${params.id_pack}`);
+      await api.put(`/user/add-pack-history`, { id_pack: params.id_pack });
       navigate("/profile");
     } catch (error) {
       console.log(error);
@@ -37,7 +37,6 @@ function PacksDetailPage() {
       <h1>Pacotes disponíveis</h1>
 
       <div>
-        
         <div key={packsDetail._id}>
           <h2>{packsDetail.title}</h2>
           <h3>{packsDetail.price}</h3>
@@ -50,7 +49,6 @@ function PacksDetailPage() {
             <button onClick={handlePacksHistory}>Favoritar</button>
           </div>
         </div>
-        
       </div>
     </div>
   );
