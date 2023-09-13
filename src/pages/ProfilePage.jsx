@@ -5,7 +5,15 @@ import { Tab } from "@headlessui/react";
 
 function ProfilePage() {
   const [user, setUser] = useState({});
-
+  const [formProfile, setFormProfile] = useState({
+    name: "",
+    email: "",
+    cpf: "",
+    telephone: "",
+    age: "",
+    address: "",
+  });
+  const [isEditing, setIsEditing] = useState(false);
   const id_user = localStorage.getItem("userId");
 
   useEffect(() => {
@@ -13,21 +21,28 @@ function ProfilePage() {
       try {
         const response = await api.get("/user/profile");
         setUser(response.data);
+        setFormProfile(response.data);
       } catch (error) {
         console.log(error);
       }
     }
-
     getProfile();
   }, []);
   async function handleSubmitProfile(e) {
     e.preventDefault();
     try {
       await api.put("/user/edit", formProfile);
-      setReload(!reload);
+      setIsEditing(false);
     } catch (error) {
       console.log(error);
     }
+  }
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormProfile({
+      ...formProfile,
+      [name]: value,
+    });
   }
   async function handleDeleteWine(e) {
     try {
@@ -58,6 +73,7 @@ function ProfilePage() {
           <p>Telefone: {user.telephone}</p>
           <p>Idade: {user.age}</p>
           <p>Endereço: {user.address}</p>
+          <button onClick={handleSubmitProfile}>Salvar</button>
         </div>
         <div>
           <img
