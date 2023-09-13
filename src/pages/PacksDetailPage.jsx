@@ -37,7 +37,10 @@ function PacksDetailPage() {
       <h1>Pacotes disponíveis</h1>
 
       <div>
-        <div key={packsDetail._id}>
+        <div
+          key={packsDetail._id}
+          className=" flex flex-col items-center text-center justify-center bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transition-transform duration-300 mb-2 gap-2"
+        >
           <h2>{packsDetail.title}</h2>
           <h3>{packsDetail.price}</h3>
           <h3>{packsDetail.type}</h3>
@@ -46,7 +49,12 @@ function PacksDetailPage() {
           <p>{packsDetail.origin}</p>
           <p>{packsDetail.delivery}</p>
           <div>
-            <button onClick={handlePacksHistory}>Favoritar</button>
+            <button
+              onClick={handlePacksHistory}
+              className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+            >
+              Favoritar
+            </button>
           </div>
         </div>
       </div>
