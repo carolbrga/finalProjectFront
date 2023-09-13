@@ -15,6 +15,7 @@ function ProfilePage() {
   });
   const [isEditing, setIsEditing] = useState(false);
   const id_user = localStorage.getItem("userId");
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     async function getProfile() {
@@ -27,12 +28,13 @@ function ProfilePage() {
       }
     }
     getProfile();
-  }, []);
+  }, [reload]);
 
   async function handleSubmitProfile(e) {
     e.preventDefault();
     try {
       await api.put(`/user/edit/${id_user}`, formProfile);
+      setReload(!reload);
       setIsEditing(false);
     } catch (error) {
       console.log(error);
@@ -49,7 +51,8 @@ function ProfilePage() {
 
   async function handleDeleteWine(id_wine) {
     try {
-      await api.delete(`/wine/remove-wine-history/${id_wine}`);
+      await api.put(`/user/remove-wine-history`, { id_wine });
+      setReload(!reload);
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +60,8 @@ function ProfilePage() {
 
   async function handleDeletePack(id_pack) {
     try {
-      await api.delete(`/packs/delete/${id_pack}`);
+      await api.put(`/user/delete-pack-history`, { id_pack });
+      setReload(!reload);
     } catch (error) {
       console.log(error);
     }
@@ -162,18 +166,27 @@ function ProfilePage() {
                   className="block text-gray-700 font-bold mb-2"
                 />
               </div>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Salvar
-              </button>
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                >
+                  Salvar
+                </button>
+              </div>
             </form>
           ) : (
             <div>
               <h1>Nome: {user.name}</h1>
               <p>Email: {user.email}</p>
-              <button onClick={() => setIsEditing(true)}>Editar</button>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => setIsEditing(true)}
+                  className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                >
+                  Editar
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -199,7 +212,10 @@ function ProfilePage() {
                   <p>Teor de Alcool: {wine.alcoholLevel}</p>
                   <p>Marca: {wine.brand}</p>
                   {isEditing ? null : (
-                    <button onClick={() => handleDeleteWine(wine._id)}>
+                    <button
+                      onClick={() => handleDeleteWine(wine._id)}
+                      className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                    >
                       Excluir
                     </button>
                   )}
@@ -214,15 +230,23 @@ function ProfilePage() {
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
             Histórico de Pacotes de Vinhos:
           </h2>
-          <div className="bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2">
+          <div className="flex flex-col justify-center items-center bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2 space-between">
             {user.history_pack && user.history_pack.length > 0 ? (
               user.history_pack.map((pack) => (
-                <div key={pack._id}>
-                  Nome do Pacote: {pack.name}{" "}
+                <div
+                  key={pack._id}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2"
+                >
+                  Nome do Pacote: {pack.title}{" "}
                   {isEditing ? null : (
-                    <button onClick={() => handleDeletePack(pack._id)}>
-                      Excluir
-                    </button>
+                    <div>
+                      <button
+                        onClick={() => handleDeletePack(pack._id)}
+                        className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                      >
+                        Excluir
+                      </button>
+                    </div>
                   )}
                 </div>
               ))
