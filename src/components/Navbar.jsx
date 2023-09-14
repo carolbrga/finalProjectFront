@@ -30,7 +30,7 @@ function Navbar() {
                 src="https://img.freepik.com/fotos-gratis/copo-de-vinho-tinto-e-garrafa-no-balcao-de-bar_107420-65845.jpg?size=626&ext=jpg"
                 alt="Workflow"
               />
-              <span className="text-lg font-bold ml-2">Wine & Wine</span>
+              <span className="text-lg font-bold ml-2">Wines & Wines</span>
             </div>
           </Link>
           <div className="flex items-center">

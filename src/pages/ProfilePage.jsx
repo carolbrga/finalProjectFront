@@ -73,7 +73,8 @@ function ProfilePage() {
       console.log(error);
     }
   }
-  async function handleDeleteUser(id_user) {
+  async function handleDeleteUser(e) {
+    e.preventDefault();
     try {
       const response = await api.put(`/user/delete`);
       console.log(response);

@@ -41,7 +41,7 @@ export default function HomePage() {
           src="https://mybartender.com/wp-content/uploads/2023/06/best-sweet-red-wine.png"
         />
         <div className="flex justify-center absolute inset-0 bg-gradient-to-t from-black opacity-50 items-center text-5xl font-bold font-monserrat text-white">
-          Vinhos & Vinhos
+          Wines & Wines
         </div>
       </div>
       <div>

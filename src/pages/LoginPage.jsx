@@ -21,6 +21,10 @@ function LoginPage() {
         "http://localhost:4000/user/login",
         form
       );
+      if (response.data.user.active === false) {
+        alert("Usuário inativo");
+        return;
+      }
       //Faça a requisição para a rota /login da sua api aqui.
 
       //GUARDAR O TOKEN E ID DE QUEM LOGOU
@@ -41,6 +45,7 @@ function LoginPage() {
     setUserType(e.target.value);
   }
   return (
+    
     <div className="flex min-h-full justify-center items-center bg-gray-100">
       <div className=" sm:w-full sm:max-w-sm bg-white p-8 rounded-lg shadow">
         <img
