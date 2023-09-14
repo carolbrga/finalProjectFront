@@ -1,7 +1,6 @@
 import api from "../axios/api";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Tab } from "@headlessui/react";
 
 function ProfilePage() {
   const [user, setUser] = useState({});
@@ -16,6 +15,7 @@ function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
   const id_user = localStorage.getItem("userId");
   const [reload, setReload] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getProfile() {
@@ -66,7 +66,24 @@ function ProfilePage() {
       console.log(error);
     }
   }
-
+  async function handleNavigateProfile() {
+    try {
+      <Link to="/" />;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async function handleDeleteUser(id_user) {
+    try {
+      const response = await api.put(`/user/delete`);
+      console.log(response);
+      localStorage.removeItem("userToken");
+      localStorage.removeItem("userId");
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="flex flex-col justify-center items-center">
@@ -173,6 +190,21 @@ function ProfilePage() {
                 >
                   Salvar
                 </button>
+                <button>
+                  <Link
+                    to="/"
+                    className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                    onClick={handleNavigateProfile}
+                  >
+                    Voltar
+                  </Link>
+                </button>
+                <button
+                  onClick={handleDeleteUser}
+                  className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                >
+                  Excluir conta
+                </button>
               </div>
             </form>
           ) : (
@@ -182,7 +214,7 @@ function ProfilePage() {
               <div className="flex justify-center">
                 <button
                   onClick={() => setIsEditing(true)}
-                  className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                  className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
                 >
                   Editar
                 </button>
