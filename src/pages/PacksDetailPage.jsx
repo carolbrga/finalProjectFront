@@ -58,9 +58,10 @@ function PacksDetailPage() {
     useEffect(() => {
         async function getWines() {
           try {
-            const response = await api.get("/wine/get-all");
-            console.log(response.data);
-            setWines(response.data);
+            const responseUser = await api.get(`/user/profile`)
+            const historyArray = responseUser.data.history_wine;
+            console.log(historyArray);
+            setWines(historyArray);
           } catch (error) {
             console.error(error);
           }
