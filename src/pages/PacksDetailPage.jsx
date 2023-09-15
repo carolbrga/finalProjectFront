@@ -8,8 +8,7 @@ function PacksDetailPage() {
   const [alreadyFavorite, setAlreadyFavorite] = useState(false);
   const navigate = useNavigate();
   const params = useParams();
-  const [wines, setWines] = useState([]);
-
+  
   useEffect(() => {
     async function getPacksDetail() {
       try {
@@ -23,11 +22,8 @@ function PacksDetailPage() {
             return pack._id === params.id_pack;
           });
           if (packFound) setAlreadyFavorite(true);
-          console.log(packFound);
-  
-          console.log(historyArray);
-        
-
+          
+                
       } catch (error) {
         console.error(error);
       }
@@ -55,20 +51,7 @@ function PacksDetailPage() {
         }
     }
   
-    useEffect(() => {
-        async function getWines() {
-          try {
-            const responseUser = await api.get(`/user/profile`)
-            const historyArray = responseUser.data.history_wine;
-            console.log(historyArray);
-            setWines(historyArray);
-          } catch (error) {
-            console.error(error);
-          }
-        }
-        getWines();
-      }, []);
-    
+        
 
   return (
     <div>
@@ -85,7 +68,7 @@ function PacksDetailPage() {
           <h3>{packsDetail.price}</h3>
           <h3>{packsDetail.type}</h3>
           <p>
-            {wines.map((wine) => (
+            {packsDetail.wines?.map((wine) => (
               <div key={wine.id}>
                 <img src={wine.photo} className="w-10" />
                 <h3>{wine.grape}</h3>
