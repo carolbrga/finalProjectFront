@@ -9,6 +9,9 @@ import WineDetailPage from "./WineDetailPage";
 export default function HomePage() {
   const [wines, setWines] = useState([]);
   const [packs, setPacks] = useState([]);
+  const [visibleWines, setVisibleWines] = useState(6);
+  const { visiblePacks, setVisiblePacks } = useState(6);
+
   useEffect(() => {
     async function getWines() {
       try {
@@ -45,18 +48,18 @@ export default function HomePage() {
         </div>
       </div>
       <div>
-        <h1>Vinhos disponíveis</h1>
+        <h1 className="flex justify-center">Vinhos disponíveis</h1>
         <div className="flex flex-wrap justify-center">
-          {wines.map((wine) => {
+          {wines.slice(0, visibleWines).map((wine) => {
             return (
               <div
                 key={wine._id}
                 className="bg-white rounded-lg shadow-sm p-2  ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-1 m-4 w-1/4"
               >
-                <img src={wine.photo} />
+                <img src={wine.photo} alt={wine.brand} />
                 <h2>Marca: {wine.brand}</h2>
                 <p>Safra: {wine.year}</p>
-                <p>origin: {wine.origin}</p>
+                <p>Origem: {wine.origin}</p>
                 <Link to={`/detalhesdovinho/wine/${wine._id}`}>
                   Mais detalhes &rarr;
                 </Link>
@@ -64,10 +67,21 @@ export default function HomePage() {
             );
           })}
         </div>
+        {visibleWines < wines.length && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={() => setVisibleWines(visibleWines + 6)}
+              className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+            >
+              Ver mais vinhos
+            </button>
+          </div>
+        )}
       </div>
       <div className="relative mb-4"></div>
+      <div className="relative mb-4"></div>
       <div>
-        <h1>Pacotes disponíveis</h1>
+        <h1 className="flex justify-center">Pacotes disponíveis</h1>
         <div className="flex flex-wrap justify-center">
           {packs.map((pack) => {
             return (
