@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 
 function PacksDetailPage() {
   const [packsDetail, setPacksDetail] = useState([]);
+  const [alreadyFavorite, setAlreadyFavorite] = useState(false);
   const navigate = useNavigate();
   const params = useParams();
+  const [wines, setWines] = useState([]);
 
   useEffect(() => {
     async function getPacksDetail() {
@@ -14,6 +16,18 @@ function PacksDetailPage() {
         const response = await api.get(`/packs/get-pack/${params.id_pack}`);
         console.log(response.data);
         setPacksDetail(response.data);
+        const responseUser = await api.get(`/user/profile`)
+        const historyArray = responseUser.data.history_pack;
+        console.log(responseUser)
+        const packFound = historyArray.find((pack) => {
+            return pack._id === params.id_pack;
+          });
+          if (packFound) setAlreadyFavorite(true);
+          console.log(packFound);
+  
+          console.log(historyArray);
+        
+
       } catch (error) {
         console.error(error);
       }
@@ -30,7 +44,30 @@ function PacksDetailPage() {
     } catch (error) {
       console.log(error);
     }
-  }
+}
+
+    async function handleRemovePackHistory() {
+        try {
+            await api.put(`/user/delete-pack-history`, { id_pack: params.id_pack });
+      navigate("/profile");
+        } catch (error) {
+            console.log(error)
+        }
+    }
+  
+    useEffect(() => {
+        async function getWines() {
+          try {
+            const response = await api.get("/wine/get-all");
+            console.log(response.data);
+            setWines(response.data);
+          } catch (error) {
+            console.error(error);
+          }
+        }
+        getWines();
+      }, []);
+    
 
   return (
     <div>
@@ -44,17 +81,35 @@ function PacksDetailPage() {
           <h2>{packsDetail.title}</h2>
           <h3>{packsDetail.price}</h3>
           <h3>{packsDetail.type}</h3>
-          <p>{packsDetail.wines}</p>
+          <p>{wines.map((wine) => (
+            <div key={wine.id}>
+            <img src={wine.photo} className="w-10" />
+                <h3>{wine.grape}</h3>
+                <p>{wine.description}</p>
+                <p>Price: ${wine.price}</p>
+            </div>
+            ))} </p>
           <p>{packsDetail.description}</p>
           <p>{packsDetail.origin}</p>
           <p>{packsDetail.delivery}</p>
           <div>
-            <button
-              onClick={handlePacksHistory}
-              className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
-            >
-              Favoritar
-            </button>
+          {alreadyFavorite === false && (
+          <button
+            onClick={handlePacksHistory}
+            className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+          >
+            Favoritar esse pack{" "}
+          </button>
+        )}
+
+        {alreadyFavorite && (
+          <button
+            onClick={handleRemovePackHistory}
+            className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+          >
+            Remover dos favoritos
+          </button>
+        )}
           </div>
         </div>
       </div>
