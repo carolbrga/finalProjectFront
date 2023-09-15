@@ -10,7 +10,7 @@ export default function HomePage() {
   const [wines, setWines] = useState([]);
   const [packs, setPacks] = useState([]);
   const [visibleWines, setVisibleWines] = useState(6);
-  const { visiblePacks, setVisiblePacks } = useState(6);
+  const [visiblePacks, setVisiblePacks] = useState(6);
 
   useEffect(() => {
     async function getWines() {
@@ -83,24 +83,38 @@ export default function HomePage() {
       <div>
         <h1 className="flex justify-center">Pacotes disponíveis</h1>
         <div className="flex flex-wrap justify-center">
-          {packs.map((pack) => {
+          {packs.slice(0, visiblePacks).map((pack) => {
             return (
-              <div
-                key={pack._id}
-                className="bg-white rounded-lg shadow-sm p-2  ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-1 m-4 w-1/4"
-              >
-                <h2>{pack.title}</h2>
-                <h3>{pack.type}</h3>
-                <p>{pack.wines}</p>
-                <p>{pack.price}</p>
+              console.log(pack),
+              (
+                <div
+                  key={pack._id}
+                  className="bg-white rounded-lg shadow-sm p-2  ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-1 m-4 w-1/4"
+                >
+                  <h2>{pack.title}</h2>
+                  <h3>{pack.type}</h3>
+                  <p>{pack.wines}</p>
+                  <p>{pack.price}</p>
 
-                <Link to={`/detalhespacotes/packs/${pack._id}`}>
-                  Ver detalhes
-                </Link>
-              </div>
+                  <Link to={`/detalhespacotes/packs/${pack._id}`}>
+                    Ver detalhes &rarr;
+                  </Link>
+                </div>
+              )
             );
           })}
         </div>
+      </div>
+
+      <div className="flex justify-center mt-4">
+        {visiblePacks < packs.length && (
+          <button
+            onClick={() => setVisiblePacks(visiblePacks + 6)}
+            className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+          >
+            Ver mais pacotes
+          </button>
+        )}
       </div>
     </main>
   );
