@@ -20,32 +20,31 @@ function Navbar() {
   //console.log(role);
 
   return (
-    <nav className="bg-white shadow">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-white py-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <Link to="/" className="flex">
-            <div className="flex-shrink-0 flex items-center">
-              <img
-                className="h-16 w-16 rounded-full"
-                src="https://img.freepik.com/fotos-gratis/copo-de-vinho-tinto-e-garrafa-no-balcao-de-bar_107420-65845.jpg?size=626&ext=jpg"
-                alt="Workflow"
-              />
-              <span className="text-lg font-bold ml-2">Wines & Wines</span>
-            </div>
+          <Link
+            to="/"
+            className="flex items-center text-2xl font-bold text-red-900 font-playfair"
+          >
+            <img
+              className="h-16 w-16 rounded-full"
+              src="https://img.freepik.com/fotos-gratis/copo-de-vinho-tinto-e-garrafa-no-balcao-de-bar_107420-65845.jpg?size=626&ext=jpg"
+              alt="Wines & Wines"
+            />
+            Wines & Wines
           </Link>
-          <div className="flex items-center">
+
+          <div className="flex items-center space-x-4">
             {isLoggedIn === false && (
               <>
                 <Link
                   to="/signup"
-                  className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-900 hover:text-red-900"
                 >
                   Sign up
                 </Link>
-                <Link
-                  to="/login"
-                  className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                >
+                <Link to="/login" className="text-gray-900 hover:text-red-900">
                   Log in
                 </Link>
               </>
@@ -55,13 +54,13 @@ function Navbar() {
               <>
                 <button
                   onClick={handleLogout}
-                  className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-900 hover:text-red-900"
                 >
                   Logout
                 </button>
                 <Link
                   to="/profile"
-                  className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-900 hover:text-red-00"
                 >
                   Profile
                 </Link>
