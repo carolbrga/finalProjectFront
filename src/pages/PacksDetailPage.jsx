@@ -71,7 +71,9 @@ function PacksDetailPage() {
 
   return (
     <div>
-      <h1>Pacotes disponíveis</h1>
+      <h1 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
+        Pacotes disponíveis
+      </h1>
 
       <div>
         <div
@@ -81,35 +83,37 @@ function PacksDetailPage() {
           <h2>{packsDetail.title}</h2>
           <h3>{packsDetail.price}</h3>
           <h3>{packsDetail.type}</h3>
-          <p>{wines.map((wine) => (
-            <div key={wine.id}>
-            <img src={wine.photo} className="w-10" />
+          <p>
+            {wines.map((wine) => (
+              <div key={wine.id}>
+                <img src={wine.photo} className="w-10" />
                 <h3>{wine.grape}</h3>
                 <p>{wine.description}</p>
                 <p>Price: ${wine.price}</p>
-            </div>
-            ))} </p>
+              </div>
+            ))}{" "}
+          </p>
           <p>{packsDetail.description}</p>
           <p>{packsDetail.origin}</p>
           <p>{packsDetail.delivery}</p>
           <div>
-          {alreadyFavorite === false && (
-          <button
-            onClick={handlePacksHistory}
-            className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
-          >
-            Favoritar esse pack{" "}
-          </button>
-        )}
+            {alreadyFavorite === false && (
+              <button
+                onClick={handlePacksHistory}
+                className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+              >
+                Favoritar esse pack{" "}
+              </button>
+            )}
 
-        {alreadyFavorite && (
-          <button
-            onClick={handleRemovePackHistory}
-            className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
-          >
-            Remover dos favoritos
-          </button>
-        )}
+            {alreadyFavorite && (
+              <button
+                onClick={handleRemovePackHistory}
+                className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+              >
+                Remover dos favoritos
+              </button>
+            )}
           </div>
         </div>
       </div>

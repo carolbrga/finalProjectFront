@@ -24,7 +24,9 @@ function PacksPage() {
 
   return (
     <div>
-      <h1>Pacotes disponíveis</h1>
+      <h1 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
+        Pacotes disponíveis
+      </h1>
 
       <div>
         {packs.map((pack) => {
