@@ -9,34 +9,8 @@ import WineDetailPage from "./WineDetailPage";
 export default function HomePage() {
   const [wines, setWines] = useState([]);
   const [packs, setPacks] = useState([]);
-
-
-  const titleStyle = {
-    fontFamily: "Playfair Display, serif",
-    fontSize: "2rem",
-    color: "#7c2d12",
-  };
-  const cardTitleStyle = {
-    fontFamily: "Playfair Display, serif",
-    fontSize: "1.5rem",
-    color: "#7c2d12",
-  };
-
-  const cardTextStyle = {
-    fontFamily: "Lora, serif",
-    fontSize: "1rem",
-  };
-
-  const companyNameStyle = {
-    fontFamily: "Playfair Display, serif",
-    fontSize: "4rem",
-    fontWeight: "bold",
-  };
-
-
   const [visibleWines, setVisibleWines] = useState(6);
   const [visiblePacks, setVisiblePacks] = useState(6);
-
 
   useEffect(() => {
     async function getWines() {
@@ -72,15 +46,11 @@ export default function HomePage() {
         />
 
         <div className="flex justify-center absolute inset-0 bg-gradient-to-t from-red-900 to-burgundy opacity-80 items-center text-5xl font-bold text-white">
-          <span style={companyNameStyle}>Wines & Wines</span>
+          <span className="font-playfair">Wines & Wines</span>
         </div>
       </div>
       <div>
-
-        <h1
-          style={titleStyle}
-          className="text-4xl font-semibold text-center mt-8 mb-4 text-burgundy"
-        >
+        <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-burgundy text-red-900">
           Vinhos disponíveis
         </h1>
 
@@ -89,27 +59,22 @@ export default function HomePage() {
             return (
               <div
                 key={wine._id}
-                className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4"
+                className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4 text-center"
               >
-
-                <img src={wine.photo} className="w-full rounded-md" alt={wine.brand} />
-                <h2
-                  style={cardTitleStyle}
-                  className="text-2xl font-semibold text-burgundy mt-2"
-                >
+                <img
+                  src={wine.photo}
+                  className="w-full rounded-md"
+                  alt={wine.brand}
+                />
+                <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
                   Marca: {wine.brand}
                 </h2>
-                <p style={cardTextStyle} className="text-gray-400">
-                  Safra: {wine.year}
-                </p>
-                <p style={cardTextStyle} className="text-gray-400">
-                  Origem: {wine.origin}
-                </p>
+                <p className="text-gray-400">Safra: {wine.year}</p>
+                <p className="text-gray-400">Origem: {wine.origin}</p>
                 <Link
                   to={`/detalhesdovinho/wine/${wine._id}`}
                   className="text-red-900 hover:text-burgundy mt-2 block"
                 >
-
                   Mais detalhes &rarr;
                 </Link>
               </div>
@@ -128,39 +93,24 @@ export default function HomePage() {
         )}
       </div>
       <div className="relative mb-4"></div>
-      <div className="relative mb-4"></div>
       <div>
-
-        <h1
-          style={titleStyle}
-          className="text-4xl font-semibold text-center mt-8 mb-4 text-burgundy"
-        >
+        <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
           Pacotes disponíveis
         </h1>
 
         <div className="flex flex-wrap justify-center">
           {packs.slice(0, visiblePacks).map((pack) => {
             return (
-
               <div
                 key={pack._id}
-                className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4"
+                className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4 text-center"
               >
-                <h2
-                  style={cardTitleStyle}
-                  className="text-2xl font-semibold text-burgundy mt-2"
-                >
+                <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
                   {pack.title}
                 </h2>
-                <h3 style={cardTextStyle} className="text-gray-400">
-                  {pack.type}
-                </h3>
-                <p style={cardTextStyle} className="text-gray-400">
-                  {pack.wines}
-                </p>
-                <p style={cardTextStyle} className="text-gray-400">
-                  {pack.price}
-                </p>
+                <h3 className="text-gray-400">{pack.type}</h3>
+                <p className="text-gray-400">{pack.wines}</p>
+                <p className="text-gray-400">{pack.price}</p>
 
                 <Link
                   to={`/detalhespacotes/packs/${pack._id}`}
@@ -169,7 +119,6 @@ export default function HomePage() {
                   Ver detalhes &rarr;
                 </Link>
               </div>
-
             );
           })}
         </div>
