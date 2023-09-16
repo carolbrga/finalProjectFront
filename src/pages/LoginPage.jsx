@@ -46,14 +46,14 @@ function LoginPage() {
   }
   return (
     
-    <div className="flex min-h-full justify-center items-center bg-gray-100">
-      <div className=" sm:w-full sm:max-w-sm bg-white p-8 rounded-lg shadow">
+    <div className="flex min-h-screen justify-center items-center bg-white">
+      <div className=" sm:w-full sm:max-w-sm p-8 rounded-lg shadow bg-white">
         <img
           className="mx-auto h-16 w-16 rounded-full"
           src="https://img.freepik.com/fotos-gratis/copo-de-vinho-tinto-e-garrafa-no-balcao-de-bar_107420-65845.jpg?size=626&ext=jpg"
-          alt="Your Company"
+          alt="Wines & Wines"
         />
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
+        <h2 className="mt-10 text-center text-2xl font-playfair font-bold leading-9 text-red-900">
           Entre na sua conta
         </h2>
 
@@ -74,7 +74,7 @@ function LoginPage() {
                 required
                 value={form.email}
                 onChange={handleChange}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none "
               />
             </div>
           </div>
@@ -95,7 +95,7 @@ function LoginPage() {
                 required
                 value={form.password}
                 onChange={handleChange}
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none "
               />
             </div>
           </div>
@@ -103,7 +103,7 @@ function LoginPage() {
           <div>
             <button
               type="submit"
-              className="w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="w-full justify-center rounded-md bg-red-900 py-2 px-3 text-sm font-semibold leading-6 text-white shadow hover:bg-red-800 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
             >
               Entrar
             </button>
@@ -114,7 +114,7 @@ function LoginPage() {
           Problemas com o login?{" "}
           <a
             href="https://wa.me/+5511999999999/?text=Não%20consegui%20me%20cadastrar%20no%20site"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            className="font-semibold leading-6 text-red-900 hover:text-red-800"
             target="_blank"
             rel="noreferrer noopener"
           >
