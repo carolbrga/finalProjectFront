@@ -11,9 +11,10 @@ import PacksPage from "./pages/PacksPage";
 import PacksDetailPage from "./pages/PacksDetailPage";
 import ProtectRoute from "./components/ProtectRoute";
 
-import CreateWinePage from "./pages/CreateWinePage"
+import CreateWinePage from "./pages/CreateWinePage";
 
 import CreatePack from "./pages/CreatePack";
+import DeleteWinePage from "./pages/DeleteWinePage";
 
 function App() {
   return (
@@ -56,6 +57,10 @@ function App() {
             path="/create-pack"
             element={<ProtectRoute Component={CreatePack} />}
           />
+          <Route
+            path="/delete-wine"
+            element={<ProtectRoute Component={DeleteWinePage} />}
+          ></Route>
         </Routes>
       </div>
     </div>
