@@ -155,9 +155,7 @@ export default function HomePage() {
                 <h3 style={cardTextStyle} className="text-gray-400">
                   {pack.type}
                 </h3>
-                <p style={cardTextStyle} className="text-gray-400">
-                  {pack.wines}
-                </p>
+             
                 <p style={cardTextStyle} className="text-gray-400">
                   {pack.price}
                 </p>
