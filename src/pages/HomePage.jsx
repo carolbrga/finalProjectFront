@@ -50,7 +50,7 @@ export default function HomePage() {
         </div>
       </div>
       <div>
-        <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-burgundy text-red-900">
+        <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
           Vinhos disponíveis
         </h1>
 

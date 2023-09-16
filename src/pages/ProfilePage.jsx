@@ -86,169 +86,222 @@ function ProfilePage() {
     }
   }
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="flex flex-col justify-center items-center">
-        <h1 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
-          PROFILE
+    <div className="bg-white min-h-screen py-10">
+      <div className="max-w-md mx-auto bg-white rounded-lg shadow p-6 space-y-4 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300">
+        <img
+          src={user.profilePicture}
+          className="mx-auto h-16 w-16 rounded-full"
+          alt="Foto do usuário"
+        />
+        <h1 className="text-center text-3xl font-playfair font-bold text-red-900">
+          Seu perfil
         </h1>
-        <div className="bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2">
-          {isEditing ? (
-            <form onSubmit={handleSubmitProfile}>
-              <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block text-gray-700 font-bold mb-2"
-                >
-                  Nome:
-                </label>
+
+        {isEditing ? (
+          <form className="mt-10 space-y-6" onSubmit={handleSubmitProfile}>
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Nome:
+              </label>
+              <div className="mt-2">
                 <input
                   type="text"
                   id="name"
                   name="name"
                   value={formProfile.name}
                   onChange={handleInputChange}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
                 />
               </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-gray-700 font-bold mb-2"
-                >
-                  Email:
-                </label>
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Email:
+              </label>
+              <div className="mt-2">
                 <input
                   type="email"
                   id="email"
                   name="email"
                   value={formProfile.email}
                   onChange={handleInputChange}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className=" block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
                 />
               </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="cpf"
-                  className="block text-gray-700 font-bold mb-2"
-                >
-                  CPF:
-                </label>
+            </div>
+            <div>
+              <label
+                htmlFor="cpf"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                CPF:
+              </label>
+              <div className="mt-2">
                 <input
                   type="text"
                   id="cpf"
                   name="cpf"
                   value={formProfile.cpf}
                   onChange={handleInputChange}
-                  className="block text-gray-700 font-bold mb-2"
+                  className=" block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
                 />
-                <label
-                  htmlFor="age"
-                  className="block text-gray-700 font-bold mb-2"
-                >
-                  Idade:
-                </label>
+              </div>
+              </div>
+              <div>  
+              <label
+                htmlFor="age"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Idade:
+              </label>
+              <div className="mt-2">
                 <input
                   type="text"
                   id="age"
                   name="age"
+                  min={18}
                   value={formProfile.age}
                   onChange={handleInputChange}
-                  className="block text-gray-700 font-bold mb-2"
+                  className=" block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
                 />
-                <label
-                  htmlFor="telephone"
-                  className="block text-gray-700 font-bold mb-2"
-                >
-                  Telefone:
-                </label>
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="telephone"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Telefone:
+              </label>
+              <div className="mt-2">
                 <input
                   type="text"
                   id="telephone"
                   name="telephone"
                   value={formProfile.telephone}
                   onChange={handleInputChange}
-                  className="block text-gray-700 font-bold mb-2"
+                  className=" block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
                 />
-                <label
-                  htmlFor="address"
-                  className="block text-gray-700 font-bold mb-2"
-                >
-                  Endereço:
-                </label>
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="address"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Endereço:
+              </label>
+              <div className="mt-2">
                 <input
                   type="text"
                   id="address"
                   name="address"
                   value={formProfile.address}
                   onChange={handleInputChange}
-                  className="block text-gray-700 font-bold mb-2"
+                  className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
                 />
               </div>
-              <div className="flex justify-center">
-                <button
-                  type="submit"
-                  className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
-                >
-                  Salvar
-                </button>
-                <button>
-                  <Link
-                    to="/"
-                    className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
-                    onClick={handleNavigateProfile}
-                  >
-                    Voltar
-                  </Link>
-                </button>
-                <button
-                  onClick={handleDeleteUser}
-                  className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
-                >
-                  Excluir conta
-                </button>
-              </div>
-            </form>
-          ) : (
-            <div>
-              <h1>Nome: {user.name}</h1>
-              <p>Email: {user.email}</p>
-              <div className="flex justify-center">
-                <button
-                  onClick={() => setIsEditing(true)}
-                  className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
-                >
-                  Editar
-                </button>
-              </div>
             </div>
-          )}
-        </div>
-        <div>
-          <img
-            src={user.profilePicture}
-            className="mx-auto h-16 w-16 rounded-full"
-            alt="Foto do usuário"
-          />
-        </div>
-        {isEditing ? null : (
-          <div className="flex flex-col justify-center items-center">
-            <h2 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
-              Histórico de Vinhos:
+            <div className="flex justify-between ">
+              <button
+                type="submit"
+                className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+              >
+                Salvar
+              </button>
+              <button>
+                <Link
+                  to="/"
+                  className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                  onClick={handleNavigateProfile}
+                >
+                  Voltar
+                </Link>
+              </button>
+              <button
+                onClick={handleDeleteUser}
+                className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+              >
+                Excluir conta
+              </button>
+            </div>
+
+            
+          </form>
+        ) : (
+          <div>
+            <h2 className="text-center text-2xl font-bold text-gray-700">
+              Nome: {user.name}
+            </h2>
+            <p className="text-center text-gray-600">Email: {user.email}</p>
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={() => setIsEditing(true)}
+                className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+              >
+                Editar
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+      {isEditing ? null : (
+        <div className="max-w-md mx-auto mt-8 bg-white rounded-lg shadow p-4 space-y-4 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300">
+          <h2 className="text-2xl font-bold text-burgundy">
+            Histórico de Vinhos:
+          </h2>
+          <div>
+            {user.history_wine && user.history_wine.length > 0 ? (
+              user.history_wine.map((wine) => (
+                <div
+                  key={wine._id}
+                  className="bg-white rounded-lg shadow p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300"
+                >
+                  <p className="text-gray-700">Nome do Vinho: {wine.grape}</p>{" "}
+                  <p className="text-gray-700">
+                    Teor de Alcool: {wine.alcoholLevel}
+                  </p>
+                  <p className="text-gray-700">Marca: {wine.brand}</p>
+                  {isEditing ? null : (
+                    <button
+                      onClick={() => handleDeleteWine(wine._id)}
+                      className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                    >
+                      Excluir
+                    </button>
+                  )}
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-700">
+                Nenhum histórico de vinho disponível.
+              </p>
+            )}
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-burgundy">
+              Histórico de Pacotes de Vinhos:
             </h2>
             <div>
-              {user.history_wine && user.history_wine.length > 0 ? (
-                user.history_wine.map((wine) => (
+              {user.history_pack && user.history_pack.length > 0 ? (
+                user.history_pack.map((pack) => (
                   <div
-                    key={wine._id}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2"
+                    key={pack._id}
+                    className="bg-white rounded-lg shadow p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300"
                   >
-                    <p>Nome do Vinho: {wine.grape}</p>{" "}
-                    <p>Teor de Alcool: {wine.alcoholLevel}</p>
-                    <p>Marca: {wine.brand}</p>
+                    <p className="text-gray-700">
+                      Nome do Pacote: {pack.title}
+                    </p>
                     {isEditing ? null : (
                       <button
-                        onClick={() => handleDeleteWine(wine._id)}
-                        className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                        onClick={() => handleDeletePack(pack._id)}
+                        className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
                       >
                         Excluir
                       </button>
@@ -256,47 +309,20 @@ function ProfilePage() {
                   </div>
                 ))
               ) : (
-                <p>Nenhum histórico de vinho disponível.</p>
+                <p className="text-gray-700">
+                  Nenhum histórico de pacote de vinho disponível.
+                </p>
               )}
             </div>
-            <div className="flex flex-col justify-center items-center">
-              <h2 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
-                Histórico de Pacotes de Vinhos:
-              </h2>
-              <div className="flex flex-col justify-center items-center bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2 space-between">
-                {user.history_pack && user.history_pack.length > 0 ? (
-                  user.history_pack.map((pack) => (
-                    <div
-                      key={pack._id}
-                      className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2"
-                    >
-                      Nome do Pacote: {pack.title}{" "}
-                      {isEditing ? null : (
-                        <div>
-                          <button
-                            onClick={() => handleDeletePack(pack._id)}
-                            className=" bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
-                          >
-                            Excluir
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  ))
-                ) : (
-                  <p>Nenhum histórico de pacote de vinho disponível.</p>
-                )}
-              </div>
-              <Link
-                to="/todosvinhos"
-                className="bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2"
-              >
-                Escolha seus vinhos
-              </Link>
-            </div>
+            <Link
+              to="/todosvinhos"
+              className="bg-burgundy py-2 px-4 rounded-lg text-white hover:bg-red-900 focus:ring focus:ring-burgundy focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-gray-100 focus:outline-none focus:shadow-outline"
+            >
+              Escolha seus vinhos
+            </Link>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
