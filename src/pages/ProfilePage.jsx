@@ -268,7 +268,7 @@ function ProfilePage() {
                   user.history_pack.map((pack) => (
                     <div
                       key={pack._id}
-                      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2"
+                      className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-2"
                     >
                       Nome do Pacote: {pack.title}{" "}
                       {isEditing ? null : (
