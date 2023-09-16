@@ -108,9 +108,12 @@ export default function HomePage() {
                 <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
                   {pack.title}
                 </h2>
+
+
                 <h3 className="text-gray-400">{pack.type}</h3>
                 <p className="text-gray-400">{pack.wines}</p>
                 <p className="text-gray-400">{pack.price}</p>
+
 
                 <Link
                   to={`/detalhespacotes/packs/${pack._id}`}
