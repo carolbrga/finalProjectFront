@@ -10,6 +10,7 @@ import WinePage from "./pages/WinePage";
 import PacksPage from "./pages/PacksPage";
 import PacksDetailPage from "./pages/PacksDetailPage";
 import ProtectRoute from "./components/ProtectRoute";
+import CreateWinePage from "./pages/CreateWinePage"
 function App() {
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -41,6 +42,10 @@ function App() {
           <Route
             path="/detalhespacotes/packs/:id_pack"
             element={<ProtectRoute Component={PacksDetailPage} />}
+          />
+          <Route
+            path="/create-wine"
+            element={<ProtectRoute Component={CreateWinePage} />}
           />
         </Routes>
       </div>
