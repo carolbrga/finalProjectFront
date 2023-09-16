@@ -51,12 +51,10 @@ function App() {
           <Route
             path="/create-wine"
             element={<ProtectRoute Component={CreateWinePage} />}
-
-
+          />
           <Route
-          path="/create-pack"
-          element={<ProtectRoute Component={CreatePack} />}
-
+            path="/create-pack"
+            element={<ProtectRoute Component={CreatePack} />}
           />
         </Routes>
       </div>
