@@ -234,10 +234,10 @@ function ProfilePage() {
           </form>
         ) : (
           <div>
-            <h2 className="text-center text-2xl font-bold text-gray-700">
-              Nome: {user.name}
+            <h2 className="text-center text-2xl font-bold font-playfair text-gray-700">
+              Olá, {user.name}
             </h2>
-            <p className="text-center text-gray-600">Email: {user.email}</p>
+            <p className="text-center text-gray-700">Email: {user.email}</p>
             <div className="flex justify-center mt-4">
               <button
                 onClick={() => setIsEditing(true)}
@@ -270,7 +270,7 @@ function ProfilePage() {
                     alt={wine.brand}
                   />
                   <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
-                    Marca: {wine.brand}
+                  {wine.grape} - {wine.brand}
                   </h2>{" "}
                   <p className="text-gray-400">Safra: {wine.year}</p>
                   <p className="text-gray-400">Origem: {wine.origin}</p>
@@ -286,7 +286,7 @@ function ProfilePage() {
                 </div>
               ))
             ) : (
-              <p className="text-gray-700">Nenhum vinho favoritado 😟</p>
+              <p className="text-center text-gray-400">Nenhum vinho favoritado 😟</p>
             )}
           </div>
           <div>
@@ -305,13 +305,14 @@ function ProfilePage() {
                     </p>
                     <p className="text-gray-400">
                       {" "}
-                      País de origem: {pack.origin}
+                      Origem: {pack.origin}
                     </p>
                     <p className="text-gray-400">R$: {pack.price}</p>
+                    
                     {isEditing ? null : (
                       <button
                         onClick={() => handleDeletePack(pack._id)}
-                        className="mr-2 mt-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+                        className="mr-2 mt-2 bg-amber-950 py-2 px-4 rounded-lg  text-white hover:bg-amber-900"
                       >
                         Excluir
                       </button>
@@ -319,13 +320,13 @@ function ProfilePage() {
                   </div>
                 ))
               ) : (
-                <p className="text-center text-gray-400">
+                <p className=" my-2 text-center text-gray-400">
                   Nenhum pacote favoritado 😟
                 </p>
               )}
             </div>
 
-            <div className="flex justify-center ">
+            <div className="flex justify-center">
               <Link
                 to="/todosvinhos"
                 className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"

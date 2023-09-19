@@ -23,24 +23,29 @@ function WinePage() {
 
   return (
     <>
-      <h1 className="flex justify-start">Vinhos:</h1>
+      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
+        Vinhos disponíveis
+      </h1>
       <div className="flex flex-wrap justify-center">
         {wines.map((wine) => {
           return (
             <div
-              className=" bg-white rounded-lg shadow-sm p-2  ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300 mb-1 m-4 w-1/4"
+              className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4 text-center"
               key={wine._id}
             >
-              <h2 className="mt-4 text-center text-2xl font-bold leading-9 text-gray-900">
-                {wine.grape} - {wine.brand}
-              </h2>
               <img src={wine.photo} />
-              <p>País de origem: {wine.origin}</p>
-              <p>Safra: {wine.year}</p>
-              <p>R$ {wine.price}</p>
+              <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
+               {wine.grape} - {wine.brand}
+              </h2>
+              <p className="text-gray-400">Safra: {wine.year}</p>
+              <p className="text-gray-400">Origem: {wine.origin}</p>
+              <p className="text-gray-400">R$ {wine.price}</p>
               <div>
-                <Link to={`/detalhesdovinho/wine/${wine._id}`}>
-                  Ver detalhes
+                <Link
+                  to={`/detalhesdovinho/wine/${wine._id}`}
+                  className="text-red-900 hover:text-burgundy mt-2 block"
+                >
+                  Mais detalhes &rarr;
                 </Link>
               </div>
             </div>
