@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function DeleteWinePage() {
   const [wines, setWines] = useState([]);
   const [visibleWines, setVisibleWines] = useState(6);
+  const [reload, setReload] = useState(false);
   useEffect(() => {
     async function getWines() {
       try {
@@ -15,9 +16,17 @@ export default function DeleteWinePage() {
       }
     }
     getWines();
-    
-  }, []);
- 
+  }, [reload]);
+
+  async function handleDeleteWine(wine_id) {
+    try {
+      await api.delete(`/wine/delete/${wine_id}`);
+      setReload(!reload);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div>
       <h1 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
@@ -35,9 +44,6 @@ export default function DeleteWinePage() {
                 className="w-full rounded-md"
                 alt={wine.brand}
               />
-              <h1 className="text-sm font-playfair font-semibold text-red-900 mt-2">
-                Código: {wine._id}
-              </h1>
               <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
                 Marca: {wine.brand}
               </h2>
@@ -53,7 +59,7 @@ export default function DeleteWinePage() {
                 onClick={() => handleDeleteWine(wine._id)}
                 className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
               >
-                Excluir este vinho
+                Deletar este vinho
               </button>
             </div>
           );
