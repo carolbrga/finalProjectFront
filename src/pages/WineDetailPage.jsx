@@ -54,18 +54,18 @@ function WineDetailPage() {
 
   return (
     <>
-      <h1>Detalhes do vinho</h1>
+      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">Sobre esse vinho</h1>
 
       <div className=" flex flex-col items-center text-center justify-center bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transition-transform duration-300 mb-2 gap-2">
-        <h2 className="mt-4 text-2xl font-bold leading-9 text-gray-900">
+        <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
           {wine.grape} - {wine.brand}
         </h2>
         <img src={wine.photo} />
-        <p>{wine.description}</p>
-        <p>País de origem: {wine.origin}</p>
-        <p>Nível de álcool: {wine.alcoholLevel}%</p>
-        <p>Safra: {wine.year}</p>
-        <p>R$ {wine.price}</p>
+        <p className="text-gray-700">{wine.description}</p>
+        <p className="text-gray-700">Safra: {wine.year}</p>
+        <p className="text-gray-700">Origem: {wine.origin}</p>
+        <p className="text-gray-700">Nível de álcool: {wine.alcoholLevel}%</p>
+        <p className="text-gray-700">R$ {wine.price}</p>
 
         {alreadyFavorite === false && (
           <button

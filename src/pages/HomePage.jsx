@@ -25,7 +25,7 @@ export default function HomePage() {
     getWines();
     async function getPacks() {
       try {
-        const response = await api.get("/packs/get-all");
+        const response = await api.get("/packs/all");
         console.log(response.data);
         setPacks(response.data);
       } catch (error) {
@@ -67,7 +67,7 @@ export default function HomePage() {
                   alt={wine.brand}
                 />
                 <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
-                  Marca: {wine.brand}
+                {wine.grape} - {wine.brand}
                 </h2>
                 <p className="text-gray-400">Safra: {wine.year}</p>
                 <p className="text-gray-400">Origem: {wine.origin}</p>
@@ -111,7 +111,7 @@ export default function HomePage() {
                 </h2>
 
 
-                <p className="text-gray-400">País de origem: {pack.origin}</p>
+                <p className="text-gray-400">Origem: {pack.origin}</p>
                 <p className="text-gray-400">{pack.wines}</p>
                 <p className="text-gray-400">R$ {pack.price}</p>
 
@@ -120,7 +120,7 @@ export default function HomePage() {
                   to={`/detalhespacotes/packs/${pack._id}`}
                   className="text-red-900 hover:text-burgundy mt-2 block"
                 >
-                  Ver detalhes &rarr;
+                  Mais detalhes &rarr;
                 </Link>
               </div>
             );
