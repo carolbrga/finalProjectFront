@@ -61,7 +61,7 @@ function WineDetailPage() {
           {wine.grape} - {wine.brand}
         </h2>
         <img src={wine.photo} />
-        <p className="text-gray-700">{wine.description}</p>
+        <p className="text-gray-700 font-playfair">{wine.description}</p>
         <p className="text-gray-700">Safra: {wine.year}</p>
         <p className="text-gray-700">Origem: {wine.origin}</p>
         <p className="text-gray-700">Nível de álcool: {wine.alcoholLevel}%</p>
