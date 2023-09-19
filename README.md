@@ -50,7 +50,7 @@ npm install
 
 npm start
 
-5. Access the website in your browser at [http://localhost:3000](http://localhost:3000).
+5. Access the website in your browser at [click here](http://localhost:3000).
 
 ## Contribution
 
