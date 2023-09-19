@@ -244,8 +244,8 @@ function SignupPage() {
             <div>
               <button
                 type="submit"
-                className="w-full justify-center rounded-md bg-red-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow hover:bg-red-800 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
-              >
+                className="w-full justify-center rounded-md bg-amber-950 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow hover:bg-amber-900 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+              > 
                 Cadastre-se
               </button>
             </div>

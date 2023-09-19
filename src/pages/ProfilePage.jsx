@@ -253,21 +253,27 @@ function ProfilePage() {
       </div>
       {isEditing ? null : (
         <div className="max-w-md mx-auto mt-8 bg-white rounded-lg shadow p-4 space-y-4 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300">
-          <h2 className="text-2xl font-bold text-burgundy">
-            Histórico de Vinhos:
+          <h2 className="text-center text-3xl font-playfair font-bold text-red-900" >Favoritos:</h2>
+          <h2 className="text-left text-2xl font-playfair font-bold text-gray-700">
+            Seus vinhos:
           </h2>
-          <div>
+          <div className="flex flex-wrap justify-center">
             {user.history_wine && user.history_wine.length > 0 ? (
               user.history_wine.map((wine) => (
                 <div
                   key={wine._id}
-                  className="bg-white rounded-lg shadow p-2 ring-1 ring-offset-2 ring-gray-200 transform hover:scale-95 transition-transform duration-300"
+                  className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4 text-center"
                 >
-                  <p className="text-gray-700">Nome do Vinho: {wine.grape}</p>{" "}
-                  <p className="text-gray-700">
-                    Teor de Alcool: {wine.alcoholLevel}
+                  <img
+                  src={wine.photo}
+                  className="w-full rounded-md"
+                  alt={wine.brand}
+                />
+                  <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">Marca: {wine.brand}</h2>{" "}
+                  <p className="text-gray-400">
+                    Safra: {wine.year}
                   </p>
-                  <p className="text-gray-700">Marca: {wine.brand}</p>
+                  <p className="text-gray-400">Origem: {wine.origin}</p>
                   {isEditing ? null : (
                     <button
                       onClick={() => handleDeleteWine(wine._id)}
@@ -316,7 +322,7 @@ function ProfilePage() {
             </div>
             <Link
               to="/todosvinhos"
-              className="bg-burgundy py-2 px-4 rounded-lg text-white hover:bg-red-900 focus:ring focus:ring-burgundy focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-gray-100 focus:outline-none focus:shadow-outline"
+              className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
             >
               Escolha seus vinhos
             </Link>
