@@ -71,6 +71,7 @@ export default function HomePage() {
                 </h2>
                 <p className="text-gray-400">Safra: {wine.year}</p>
                 <p className="text-gray-400">Origem: {wine.origin}</p>
+                <p className="text-gray-400">R$ {wine.price}</p>
                 <Link
                   to={`/detalhesdovinho/wine/${wine._id}`}
                   className="text-red-900 hover:text-burgundy mt-2 block"
@@ -106,13 +107,13 @@ export default function HomePage() {
                 className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4 text-center"
               >
                 <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
-                  {pack.title}
+                 {pack.title}
                 </h2>
 
 
-                <h3 className="text-gray-400">{pack.type}</h3>
+                <p className="text-gray-400">País de origem: {pack.origin}</p>
                 <p className="text-gray-400">{pack.wines}</p>
-                <p className="text-gray-400">{pack.price}</p>
+                <p className="text-gray-400">R$ {pack.price}</p>
 
 
                 <Link
