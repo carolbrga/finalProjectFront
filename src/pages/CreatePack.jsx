@@ -48,8 +48,8 @@ export default function CreatePack() {
   };
 
   const handleSelectWine = (e) => {
-    const newArray = [...packData.wines, e.target.value]
-    setPackData({...packData, wines: newArray})
+    const newArray = [...packData.wines, e.target.value];
+    setPackData({ ...packData, wines: newArray });
     console.log(e.target.value);
   };
 
@@ -83,16 +83,22 @@ export default function CreatePack() {
             })}
           </select>
 
+          <div>
+            <p>Vinhos selecionados</p>
             <div>
-                <p>Vinhos selecionados</p>
-                <div>
-                    {packData.wines.map((wine) => {
-                        return(
-                            <p>{wine}</p>
-                        )
-                    })}
-                </div>
+              {packData.wines.map((wineId) => {
+                const wine = wines.find((wine) => {
+                  return wine._id === wineId;
+                });
+
+                return (
+                  <p key={wine._id}>
+                    {wine.grape} {wine.category}
+                  </p>
+                );
+              })}
             </div>
+          </div>
           <label>Descrição</label>
           <textarea
             name="description"

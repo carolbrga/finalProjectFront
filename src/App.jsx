@@ -10,11 +10,13 @@ import WinePage from "./pages/WinePage";
 import PacksPage from "./pages/PacksPage";
 import PacksDetailPage from "./pages/PacksDetailPage";
 import ProtectRoute from "./components/ProtectRoute";
+import DeletePackPage from "./pages/DeletePackPage";
 
 import CreateWinePage from "./pages/CreateWinePage";
 
 import CreatePack from "./pages/CreatePack";
 import DeleteWinePage from "./pages/DeleteWinePage";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -60,6 +62,16 @@ function App() {
           <Route
             path="/delete-wine"
             element={<ProtectRoute Component={DeleteWinePage} />}
+          ></Route>
+
+          <Route
+            path="/delete-pack"
+            element={<ProtectRoute Component={DeletePackPage} />}
+          ></Route>
+
+<Route
+            path="/admin"
+            element={<ProtectRoute Component={AdminPage} />}
           ></Route>
         </Routes>
       </div>
