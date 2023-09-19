@@ -24,7 +24,7 @@ function WinePage() {
   return (
     <>
       <h1 className="flex justify-start">Vinhos:</h1>
-      <div className="flex flex-wrap justify-center ">
+      <div className="flex flex-wrap justify-center">
         {wines.map((wine) => {
           return (
             <div
