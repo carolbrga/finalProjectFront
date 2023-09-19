@@ -1,58 +1,57 @@
-# test-devjob-client
-## Sistema de Vagas de Emprego e Candidaturas
-Este é um sistema de gerenciamento de vagas de emprego onde as empresas podem criar vagas e os candidatos podem se candidatar a elas. Além disso, as empresas têm a capacidade de cancelar uma vaga ou selecionar um dos candidatos para a vaga.
+# Project 3 Wines & Wines
 
-## Funcionalidades Principais
-- Cadastro de Empresas: As empresas podem se cadastrar no sistema e criar vagas de emprego.
+Welcome to the Project 3 Wines & Wines repository! This is the frontend for our wine subscription website.
 
-- Cadastro de Candidatos: Os candidatos podem se cadastrar no sistema e se candidatar às vagas disponíveis. Seu currículo faz parte do seu perfil. 
+## Project Team
 
-- Gerenciamento de Vagas: As empresas podem criar, visualizar, editar e cancelar vagas de emprego.
+- **Alexandre dos Santos Rocha**
+- **Victor Nathan Pimenta**
+- **Carolina Braga**
 
-- Candidaturas: Os candidatos podem visualizar as vagas disponíveis e se candidatar a elas. As empresas podem ver quem se candidatou a suas vagas e selecionar um candidato para a vaga.
+## Supervisor
 
-## Tecnologias Utilizadas
-Este projeto foi desenvolvido utilizando as seguintes tecnologias:
+This project was supervised by **Karen Okasaki**.
 
-- Frontend: O frontend foi desenvolvido em **React.js** e estilizado em **Tailwindcss**.
+## Key Features
 
-- Backend: O backend foi desenvolvido em **Node.js**, utilizando o framework **Express.js** para criar a API.
-[Github - Devjob Server](https://github.com/karenokasaki/test-devjob-server)
-  
-- Autenticação: JWT + Hasheamento de senha
+- **User Registration:** Users can register on the website, create a profile, and access available features.
 
-- Banco de Dados: Foi utilizado o **MongoDB** como banco de dados para armazenar informações sobre empresas, vagas e candidatos.
+- **Selection of Wines and Packages:** Users have access to a variety of premium wines and wine packages available for subscription. They can choose the wines and packages they want to receive in each delivery.
 
-### Como Executar o Projeto Localmente
-Siga as etapas abaixo para executar o projeto localmente em sua máquina:
+- **Favorite Wines and Packages:** Users can favorite their favorite wines and packages for easy access and future reference.
 
-Clone este repositório para o seu computador:
-```bash
-git clone https://github.com/karenokasaki/test-devjob-client.git
-```
+- **Reading Wines and Packages:** Users can view detailed information about wines and packages available in the system.
 
-Navegue até o diretório do projeto:
-```bash
-cd test-devjob-client
-```
+- **Removing Favorites:** Users have the ability to remove wines and packages from their favorites.
 
-Instale as dependências do frontend e do backend:
-```bash
+- **Data Editing and Account Deletion:** Users can edit their profile information and also have the option to delete their own account.
+
+## Administration of Wines and Packages
+
+Administrators have the ability to create, edit, read, or delete wines and packages in the system.
+
+## How to Run the Project Locally
+
+Follow the steps below to run the project locally on your machine:
+
+1. Clone this repository to your computer:
+
+[https://github.com/carolbrga/finalProjectFront.git](https://github.com/carolbrga/finalProjectFront.git)
+
+2. Navigate to the project directory:
+
+cd finalProjectFront
+
+3. Install dependencies:
+
 npm install
-```
 
-Inicie o servidor frontend:
-```bash
-npm run dev
-```
+4. Start the development server:
 
-Acesse o sistema no seu navegador em http://localhost:5173.
+npm start
 
-Contribuição
-Sinta-se à vontade para contribuir para este projeto abrindo problemas (issues) ou enviando solicitações de pull (pull requests). Toda contribuição é bem-vinda!
+5. Access the website in your browser at [http://localhost:3000](http://localhost:3000).
 
-**Projeto realizado em sala de aula com os alunos da turma 103 Web Dev - Ironhack 2023.**
-_Um futuro brilhante para todos vocês, meus alunos._
+## Contribution
 
-
-# Autora: Karen Okasaki | Leah Teacher
+Feel free to contribute to this project by opening issues or sending pull requests. All contributions are welcome!
