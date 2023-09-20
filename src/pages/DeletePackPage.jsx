@@ -4,6 +4,7 @@ import api from "../axios/api";
 
 export default function DeletePackPage() {
   const [packs, setPacks] = useState([]);
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     async function getPacks() {
@@ -16,14 +17,14 @@ export default function DeletePackPage() {
       }
     }
     getPacks();
-  }, []);
+  }, [reload]);
   console.log(packs);
 
   async function deletePack(pack_id) {
     try {
-      const response = await api.delete(`/packs/delete/${pack_id}`);
-      console.log(response.data);
-      console.log(response)
+      await api.delete(`/packs/delete/${pack_id}`);
+      setReload(!reload);
+     
     } catch (error) {
       console.log("Erro ao deletar");
     }

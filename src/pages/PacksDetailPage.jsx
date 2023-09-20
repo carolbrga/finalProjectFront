@@ -16,8 +16,8 @@ function PacksDetailPage() {
         console.log(response.data);
         setPacksDetail(response.data);
         const responseUser = await api.get(`/user/profile`);
-        const historyArray = responseUser.data.history_pack;
         console.log(responseUser);
+        const historyArray = responseUser.data.history_pack;
         const packFound = historyArray.find((pack) => {
           return pack._id === params.id_pack;
         });
@@ -56,6 +56,7 @@ function PacksDetailPage() {
       <h2 className="text-4xl font-playfair font-semibold text-red-900 mt-2">
         {packsDetail.title}
       </h2>
+      <img src={packsDetail.photo}/>
         <div key={packsDetail._id}>
           <p className="text-gray-700 font-playfair text-xl">{packsDetail.description}</p>
           <p className="text-gray-700 font-playfair text-xl">Tamanho: {packsDetail.type}</p>

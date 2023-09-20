@@ -15,6 +15,7 @@ export default function CreatePack() {
   });
 
   const [wines, setWines] = useState([]);
+  const [photo, setPhoto] = useState();
 
   useEffect(() => {
     async function getWines() {
@@ -55,6 +56,23 @@ export default function CreatePack() {
 
   console.log(packData);
 
+  async function getUrl(photo) {
+    //photo = state com a foto guardada
+    try {
+      const multiPartForm = new FormData();
+
+      multiPartForm.append("picture", photo);
+
+      const response = await api.post("/upload/file", multiPartForm);
+
+      console.log(response);
+
+      return response.data.url;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div>
       <h1>Criar Pack pré definido</h1>
@@ -71,6 +89,9 @@ export default function CreatePack() {
             <option value={"Nationals"}>Nationals</option>
             <option value={"Imports"}>Rose</option>
           </select>
+
+          <label>Imagem do Pack</label>
+          <input id="photo" name="photo" type="text" onChange={handleChange} />
 
           <label>Wines:</label>
           <select name="wines" onChange={handleSelectWine}>
