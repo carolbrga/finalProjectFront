@@ -23,7 +23,9 @@ function PacksPage() {
 
   return (
     <>
-      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">Pacotes disponíveis</h1>
+      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
+        Pacotes disponíveis
+      </h1>
 
       <div className="flex flex-wrap justify-center">
         {packs.map((pack) => {
@@ -32,13 +34,17 @@ function PacksPage() {
               className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4 text-center"
               key={pack._id}
             >
-              <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">{pack.title}</h2>
+              <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
+                {pack.title}
+              </h2>
               <p className="text-gray-400">Origem: {pack.origin}</p>
-              <p className="text-gray-400">{pack.wines}</p>
               <p className="text-gray-400">R$ {pack.price}</p>
               <div>
-                <Link to={`/detalhespacotes/packs/${pack._id}`} className="text-red-900 hover:text-burgundy mt-2 block">
-                Mais detalhes &rarr;
+                <Link
+                  to={`/detalhespacotes/packs/${pack._id}`}
+                  className="text-red-900 hover:text-burgundy mt-2 block"
+                >
+                  Mais detalhes &rarr;
                 </Link>
               </div>
             </div>
