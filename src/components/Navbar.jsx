@@ -7,6 +7,8 @@ function Navbar() {
   const { isLoggedIn, role } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const admin = localStorage.getItem("admin");
+  console.log(admin);
 
   function handleLogout(e) {
     e.preventDefault();
@@ -38,10 +40,7 @@ function Navbar() {
           <div className="flex items-center space-x-4">
             {isLoggedIn === false && (
               <>
-                <Link
-                  to="/signup"
-                  className="text-gray-900 hover:text-red-900"
-                >
+                <Link to="/signup" className="text-gray-900 hover:text-red-900">
                   Sign up
                 </Link>
                 <Link to="/login" className="text-gray-900 hover:text-red-900">
@@ -58,12 +57,15 @@ function Navbar() {
                 >
                   Logout
                 </button>
-                <Link
-                  to="/profile"
-                  className="text-gray-900 hover:text-red-00"
-                >
+                <Link to="/profile" className="text-gray-900 hover:text-red-00">
                   Profile
                 </Link>
+
+                {admin && (
+                  <Link to="/admin" className="text-gray-900 hover:text-red-00">
+                    Admin
+                  </Link>
+                )}
               </>
             )}
           </div>

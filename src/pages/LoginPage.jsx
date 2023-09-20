@@ -26,15 +26,19 @@ function LoginPage() {
         return;
       }
       //Faça a requisição para a rota /login da sua api aqui.
-
+      let admins = ["email@gmail.com", "ciwap@ig.com.br", "vinhos@gmail.com"];
       //GUARDAR O TOKEN E ID DE QUEM LOGOU
       const token = response.data.token;
       const userId = response.data.user._id;
-
       localStorage.setItem("userToken", token);
       localStorage.setItem("userId", userId);
 
-      navigate("/profile");
+      if (admins.includes(response.data.user.email)) {
+        localStorage.setItem("admin", true);
+        navigate("/admin");
+      } else {
+        navigate("/profile");
+      }
     } catch (error) {
       // lógica se der erro na requisição
       console.log(error);
@@ -45,7 +49,6 @@ function LoginPage() {
     setUserType(e.target.value);
   }
   return (
-    
     <div className="flex min-h-screen justify-center items-center bg-white">
       <div className=" sm:w-full sm:max-w-sm p-8 rounded-lg shadow bg-white">
         <img
