@@ -33,7 +33,7 @@ function WinePage() {
               className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4 text-center"
               key={wine._id}
             >
-              <img src={wine.photo} />
+              <img className="w-full" src={wine.photo} />
               <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
                {wine.grape} - {wine.brand}
               </h2>

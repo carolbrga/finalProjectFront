@@ -51,11 +51,11 @@ function PacksDetailPage() {
 
   return (
     <>
-      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
+<h1 className="text-2xl font-playfair font-semibold text-center mt-8 mb-4 text-gray-700">Sobre este pacote:</h1>
+      <div className=" flex flex-col items-center text-center justify-center rounded-lg transition-transform duration-300 mb-2 gap-2">
+      <h2 className="text-4xl font-playfair font-semibold text-red-900 mt-2">
         {packsDetail.title}
-      </h1>
-
-      <div className=" flex flex-col items-center text-center justify-center bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transition-transform duration-300 mb-2 gap-2">
+      </h2>
         <div key={packsDetail._id}>
           <p className="text-gray-700 font-playfair text-xl">{packsDetail.description}</p>
           <p className="text-gray-700 font-playfair text-xl">Tamanho: {packsDetail.type}</p>
@@ -65,7 +65,7 @@ function PacksDetailPage() {
           </p>
           <p className="text-gray-700 font-playfair text-xl">Apenas R${packsDetail.price}</p>
 
-          <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
+          <h2 className="text-2xl font-playfair font-semibold text-red-900 my-2">
             Vinhos selecionados neste pack:
           </h2>
           <div className="flex flex-wrap justify-center">
