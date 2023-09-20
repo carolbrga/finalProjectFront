@@ -4,14 +4,9 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminPage() {
-
-
-  
-
-  
   return (
     <div>
-      <h1 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
+      <h1 className="text-center text-3xl font-playfair font-bold text-red-900">
         Admin
       </h1>
       <div className="flex flex-wrap justify-center">

@@ -75,7 +75,9 @@ export default function CreatePack() {
 
   return (
     <div>
-      <h1>Criar Pack pré definido</h1>
+      <h1 className="text-center text-3xl font-playfair font-bold text-red-900">
+        Criar Pack pré definido
+      </h1>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col">
           <label>Seleção de Vinhos:</label>

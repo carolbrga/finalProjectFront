@@ -32,7 +32,9 @@ export default function DeletePackPage() {
 
   return (
     <div>
-      <p>Packs disponiveis</p>
+      <p className="text-center text-3xl font-playfair font-bold text-red-900">
+        Packs disponiveis
+      </p>
       <div>
         {packs.map((pack) => {
           return (
