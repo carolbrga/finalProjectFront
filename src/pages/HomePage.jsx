@@ -112,7 +112,7 @@ export default function HomePage() {
 
 
                 <p className="text-gray-400">Origem: {pack.origin}</p>
-                <p className="text-gray-400">{pack.wines}</p>
+                
                 <p className="text-gray-400">R$ {pack.price}</p>
 
 
