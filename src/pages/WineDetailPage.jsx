@@ -54,14 +54,14 @@ function WineDetailPage() {
 
   return (
     <>
-      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">Sobre esse vinho</h1>
+      <h1 className="text-2xl font-playfair font-semibold text-center mt-8 mb-4 text-gray-700">Sobre este vinho:</h1>
 
-      <div className=" flex flex-col items-center text-center justify-center bg-white rounded-lg shadow-sm p-2 ring-1 ring-offset-2 ring-gray-200 transition-transform duration-300 mb-2 gap-2">
-        <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
+      <div className=" flex flex-col items-center text-center justify-center rounded-lg transition-transform duration-300 mb-2 gap-2">
+        <h2 className="text-4xl font-playfair font-semibold text-red-900 mt-2">
           {wine.grape} - {wine.brand}
         </h2>
-        <img src={wine.photo} />
-        <p className="text-gray-700 font-playfair">{wine.description}</p>
+        <img className="h-96"src={wine.photo} />
+        <p className="text-gray-700 font-playfair text-xl">{wine.description}</p>
         <p className="text-gray-700">Safra: {wine.year}</p>
         <p className="text-gray-700">Origem: {wine.origin}</p>
         <p className="text-gray-700">Nível de álcool: {wine.alcoholLevel}%</p>
