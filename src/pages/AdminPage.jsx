@@ -62,7 +62,7 @@ export default function AdminPage() {
           </div>
         </div>
       </div>
-      <div className="flex items-center mt-4">
+      <div className="flex flex-wrap justify-around">
         <button className="flex items-center mt-4">
           <Link
             to="/"
