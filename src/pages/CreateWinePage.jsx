@@ -36,13 +36,23 @@ const CreateWinePage = () => {
   console.log(wineData);
   return (
     <div>
-      <h1 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
+      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
         Criar Vinho
       </h1>
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col">
-          <label>Grape:</label>
-          <select name="grape" onChange={handleChange} required>
+      <form
+        className="sm:w-full sm:max-w-md p-8 rounded-lg shadow bg-white"
+        onSubmit={handleSubmit}
+      >
+        <label className="block text-sm font-medium leading-6 text-gray-900">
+          Grape:
+        </label>
+        <div className="mt-2">
+          <select
+            name="grape"
+            onChange={handleChange}
+            required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+          >
             <option>Selecione uma opção</option>
             <option value={"Merlot"}>Merlot</option>
             <option value={"Cabernet Sauvignon"}>Cabernet Sauvignon</option>
@@ -53,71 +63,111 @@ const CreateWinePage = () => {
             <option value={"Rose"}>Rose</option>
             <option value={"outro"}>Outro</option>
           </select>
-          <label>Descrição:</label>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Descrição:
+        </label>
+        <div className="mt-2">
           <textarea
             name="description"
             value={wineData.description}
             onChange={handleChange}
             required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           />
-          <label>Categoria</label>
-          <select name="category" onChange={handleChange} required>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Categoria
+        </label>
+        <div className="mt-2">
+          <select
+            name="category"
+            onChange={handleChange}
+            required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+          >
             <option>Selecione uma opção</option>
             <option value={"red"}>Red</option>
             <option value={"white"}>White</option>
             <option value={"rose"}>Rose</option>
           </select>
-          <label>Alcool:</label>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Alcool:
+        </label>
+        <div className="mt-2">
           <input
             type="text"
             name="alcoholLevel"
             value={wineData.alcoholLevel}
             onChange={handleChange}
             required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           />
-          <label>Ano:</label>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Ano:
+        </label>
+        <div className="mt-2">
           <input
             type="text"
             name="year"
             value={wineData.year}
             onChange={handleChange}
             required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           />
-          <label>Marca:</label>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Marca:
+        </label>
+        <div className="mt-2">
           <input
             type="text"
             name="brand"
             value={wineData.brand}
             onChange={handleChange}
             required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           />
-          <label>Origem:</label>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Origem:
+        </label>
+        <div className="mt-2">
           <input
             type="text"
             name="origin"
             value={wineData.origin}
             onChange={handleChange}
             required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           />
-          <label>Preço:</label>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Preço:
+        </label>
+        <div className="mt-2">
           <input
             type="text"
             name="price"
             value={wineData.price}
             onChange={handleChange}
             required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           />
         </div>
-        <div className="flex mt-4 gap-2 justify-center">
+
+        <div className="mt-4 flex items-center space-x-2 justify-center">
           <button
             type="submit"
-            className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+            className="w-full justify-center rounded-md bg-amber-950 px-3 py-2 text-sm font-semibold leading-6 text-white shadow hover:bg-amber-900 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           >
             Criar
           </button>
           <button
             onClick={() => window.history.back()}
-            className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+            className="w-full justify-center rounded-md bg-amber-950 px-3 py-2 text-sm font-semibold leading-6 text-white shadow hover:bg-amber-900 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           >
             Descartar
           </button>

@@ -56,7 +56,7 @@ function PacksDetailPage() {
       <h2 className="text-4xl font-playfair font-semibold text-red-900 mt-2">
         {packsDetail.title}
       </h2>
-      <img src={packsDetail.photo}/>
+      <img className="max-h-96" src={packsDetail.photo}/>
         <div key={packsDetail._id}>
           <p className="text-gray-700 font-playfair text-xl">{packsDetail.description}</p>
           <p className="text-gray-700 font-playfair text-xl">Tamanho: {packsDetail.type}</p>

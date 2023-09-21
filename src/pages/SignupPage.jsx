@@ -51,7 +51,7 @@ function SignupPage() {
         profilePicture: url,
       };
 
-      await axios.post("http://localhost:4000/user/signup", formWithPhoto);
+      await axios.post("https://vinhosandvinhos.cyclic.cloud/user/signup", formWithPhoto);
 
       navigate("/login");
     } catch (error) {
