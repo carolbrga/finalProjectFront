@@ -34,6 +34,7 @@ function PacksPage() {
               className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4 text-center"
               key={pack._id}
             >
+               <img src={pack.photo}/>
               <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
                 {pack.title}
               </h2>
