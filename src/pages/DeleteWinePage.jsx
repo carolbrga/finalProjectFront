@@ -29,8 +29,8 @@ export default function DeleteWinePage() {
 
   return (
     <div>
-      <h1 className="mt-10 text-center text-2xl font-bold leading-9 text-gray-900">
-        Deletar Vinho
+      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
+        Deletar vinho
       </h1>
       <div className="flex flex-wrap justify-center">
         {wines.slice(0, visibleWines).map((wine) => {

@@ -24,7 +24,6 @@ export default function DeletePackPage() {
     try {
       await api.delete(`/packs/delete/${pack_id}`);
       setReload(!reload);
-     
     } catch (error) {
       console.log("Erro ao deletar");
     }
@@ -32,26 +31,22 @@ export default function DeletePackPage() {
 
   return (
     <div>
-      <p className="text-center text-3xl font-playfair font-bold text-red-900">
-        Packs disponiveis
-      </p>
-      <div>
+      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
+        Deletar pacotes
+      </h1>
+      <div className="flex flex-wrap justify-center">
         {packs.map((pack) => {
           return (
             <div
               key={pack._id}
               className="bg-white rounded-lg shadow-lg p-4 mx-4 my-4 w-1/4 text-center"
             >
-              <h3 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
+              <img src={pack.photo} alt={pack.brand} />
+              <h2 className="text-2xl font-playfair font-semibold text-red-900 mt-2">
                 {pack.title}
-              </h3>
-              <img
-                src={pack.photo}
-                className="w-full rounded-md"
-                alt={pack.brand}
-              />
-              <h4 className="text-gray-400">Tamanho: {pack.type}</h4>
-              <h5 className="text-gray-400">Origem: {pack.origin}</h5>
+              </h2>
+              <p className="text-gray-400">Tamanho: {pack.type}</p>
+              <p className="text-gray-400">Origem: {pack.origin}</p>
               <Link
                 to={`/detalhespacotes/packs/${pack._id}`}
                 className="text-red-900 hover:text-burgundy mt-2 block"

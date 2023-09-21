@@ -35,7 +35,7 @@ const CreateWinePage = () => {
 
   console.log(wineData);
   return (
-    <div>
+    <div className="flex flex-col flex-wrap content-center">
       <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
         Criar Vinho
       </h1>
@@ -158,16 +158,16 @@ const CreateWinePage = () => {
           />
         </div>
 
-        <div className="mt-4 flex items-center space-x-2 justify-center">
+        <div>
           <button
             type="submit"
-            className="w-full justify-center rounded-md bg-amber-950 px-3 py-2 text-sm font-semibold leading-6 text-white shadow hover:bg-amber-900 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+            className="w-full justify-center rounded-md bg-amber-950 mt-2 px-3 py-2 text-sm font-semibold leading-6 text-white shadow hover:bg-amber-900 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           >
             Criar
           </button>
           <button
             onClick={() => window.history.back()}
-            className="w-full justify-center rounded-md bg-amber-950 px-3 py-2 text-sm font-semibold leading-6 text-white shadow hover:bg-amber-900 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+            className="w-full justify-center rounded-md bg-amber-950 mt-2 px-3 py-2 text-sm font-semibold leading-6 text-white shadow hover:bg-amber-900 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           >
             Descartar
           </button>

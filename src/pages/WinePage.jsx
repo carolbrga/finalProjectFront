@@ -28,9 +28,10 @@ function WinePage() {
             Vinhos disponíveis
          </h1>
 
-         <select onChange={(e) => setSearch(e.target.value)}>
-            <option value={"red"}>Red</option>
-            <option value={"white"}>White</option>
+         <select className="w-28 rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none" onChange={(e) => setSearch(e.target.value)}>
+            <option value={"red"}>Tintos</option>
+            <option value={"white"}>Brancos</option>
+            <option value={"rose"}>Rosés</option>
          </select>
 
          <div className="flex flex-wrap justify-center">

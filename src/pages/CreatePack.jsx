@@ -74,14 +74,24 @@ export default function CreatePack() {
   }
 
   return (
-    <div>
-      <h1 className="text-center text-3xl font-playfair font-bold text-red-900">
-        Criar Pack pré definido
+    <div className="flex flex-col flex-wrap content-center">
+      <h1 className="text-4xl font-playfair font-semibold text-center mt-8 mb-4 text-red-900">
+        Criar pacote pré-definido
       </h1>
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col">
-          <label>Seleção de Vinhos:</label>
-          <select name="title" onChange={handleChange} required>
+      <form
+        className="sm:w-full sm:max-w-md p-8 rounded-lg shadow bg-white"
+        onSubmit={handleSubmit}
+      >
+        <label className="block text-sm font-medium leading-6 text-gray-900">
+          Seleção de Vinhos:
+        </label>
+        <div className="mt-2">
+          <select
+            name="title"
+            onChange={handleChange}
+            required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+          >
             <option>Selecione uma opção</option>
             <option value={"Rose"}>Rosé</option>
             <option value={"Reds and Whites"}>Reds and Whites</option>
@@ -91,12 +101,28 @@ export default function CreatePack() {
             <option value={"Nationals"}>Nationals</option>
             <option value={"Imports"}>Rose</option>
           </select>
-
-          <label>Imagem do Pack</label>
-          <input id="photo" name="photo" type="text" onChange={handleChange} />
-
-          <label>Wines:</label>
-          <select name="wines" onChange={handleSelectWine}>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Imagem do pacote:
+        </label>
+        <div className="mt-2">
+          <input
+            id="photo"
+            name="photo"
+            type="text"
+            onChange={handleChange}
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+          />
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Wines:
+        </label>
+        <div className="mt-2">
+          <select
+            name="wines"
+            onChange={handleSelectWine}
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+          >
             {wines.map((wine) => {
               return (
                 <option key={wine._id} value={wine._id}>
@@ -105,74 +131,109 @@ export default function CreatePack() {
               );
             })}
           </select>
+        </div>
 
-          <div>
-            <p>Vinhos selecionados</p>
-            <div>
-              {packData.wines.map((wineId) => {
-                const wine = wines.find((wine) => {
-                  return wine._id === wineId;
-                });
+        <p className="block text-sm text-center font-medium leading-6 text-gray-900 mt-4 ">
+          Vinhos selecionados
+        </p>
+        <div className="mt-2">
+          {packData.wines.map((wineId) => {
+            const wine = wines.find((wine) => {
+              return wine._id === wineId;
+            });
 
-                return (
-                  <p key={wine._id}>
-                    {wine.grape} {wine.category}
-                  </p>
-                );
-              })}
-            </div>
-          </div>
-          <label>Descrição</label>
+            return (
+              <p
+                key={wine._id}
+                className="block w-full rounded-md border border-gray-300 py-2 px-3 mt-2 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+              >
+                {wine.grape} - {wine.category}
+              </p>
+            );
+          })}
+        </div>
+
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Descrição:
+        </label>
+        <div className="mt-2">
           <textarea
             name="description"
             value={packData.description}
             onChange={handleChange}
             required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           />
-
-          <label>Tamanho</label>
-          <select name="type" onChange={handleChange} required>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Tamanho:
+        </label>
+        <div className="mt-2">
+          <select
+            name="type"
+            onChange={handleChange}
+            required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+          >
             <option>Selecione o tamanho do seu pack</option>
             <option value={"2 pack"}>2 pack</option>
             <option value={"4 pack"}>4 pack</option>
             <option value={"6 pack"}>6 pack</option>
           </select>
-
-          <label>Retirada</label>
-          <select name="delivery" onChange={handleChange} required>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Retirada:
+        </label>
+        <div className="mt-2">
+          <select
+            name="delivery"
+            onChange={handleChange}
+            required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
+          >
             <option>Selecione o modo de retirada</option>
             <option value={"Pick up"}>Retirar na loja</option>
             <option value={"Delivery"}>Delivery</option>
           </select>
-
-          <label>Origem</label>
+        </div>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Origem:
+        </label>
+        <div className="mt-2">
           <textarea
+            type="text"
             name="origin"
             value={packData.origin}
             onChange={handleChange}
             required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           />
+        </div>
 
-          <label>Preço:</label>
+        <label className="block text-sm font-medium leading-6 text-gray-900 mt-4">
+          Preço:
+        </label>
+        <div className="mt-2">
           <input
             type="text"
             name="price"
             value={packData.price}
             onChange={handleChange}
             required
+            className="block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 placeholder-text-gray-400 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           />
         </div>
 
-        <div className="flex mt-4 gap-2 justify-center">
+        <div>
           <button
             type="submit"
-            className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+            className="w-full justify-center rounded-md bg-amber-950 mt-2 px-3 py-2 text-sm font-semibold leading-6 text-white shadow hover:bg-amber-900 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           >
             Criar
           </button>
           <button
             onClick={() => window.history.back()}
-            className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+            className="w-full justify-center rounded-md bg-amber-950 mt-2 px-3 py-2 text-sm font-semibold leading-6 text-white shadow hover:bg-amber-900 focus:ring focus:ring-red-900 focus:ring-opacity-50 focus:outline-none"
           >
             Descartar
           </button>
