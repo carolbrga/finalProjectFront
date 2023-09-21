@@ -62,6 +62,16 @@ export default function AdminPage() {
           </div>
         </div>
       </div>
+      <div className="flex items-center mt-4">
+        <button className="flex items-center mt-4">
+          <Link
+            to="/"
+            className="mr-2 bg-amber-950 py-2 px-4 rounded-lg text-white hover:bg-amber-900"
+          >
+            Voltar
+          </Link>
+        </button>
+      </div>
     </>
   );
 }
