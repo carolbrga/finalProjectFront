@@ -30,28 +30,4 @@ This project was supervised by **Karen Okasaki**.
 
 Administrators have the ability to create, edit, read, or delete wines and packages in the system.
 
-## How to Run the Project Locally
 
-Follow the steps below to run the project locally on your machine:
-
-1. Clone this repository to your computer:
-
-[https://github.com/carolbrga/finalProjectFront.git](https://github.com/carolbrga/finalProjectFront.git)
-
-2. Navigate to the project directory:
-
-cd finalProjectFront
-
-3. Install dependencies:
-
-npm install
-
-4. Start the development server:
-
-npm start
-
-5. Access the website in your browser at [click here](http://localhost:3000).
-
-## Contribution
-
-Feel free to contribute to this project by opening issues or sending pull requests. All contributions are welcome!
