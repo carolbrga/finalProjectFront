@@ -2,7 +2,8 @@
 
 Welcome to the Project 3 Wines & Wines repository! This is the frontend for our wine subscription website.
 
-https://github-production-user-asset-6210df.s3.amazonaws.com/128938772/271728889-93d30ffd-58ca-47c5-ba08-f7288fb3f31c.png
+![image](https://github.com/carolbrga/finalProjectFront/assets/128938772/c34d7e16-860c-4fa8-b347-f0cd08a1b94d)
+
 
 
 ## Project Team
